@@ -1,0 +1,27 @@
+@media (max-width: 900px) {
+  nav {
+    display: block;
+  }
+
+  .nav-item {
+    max-width: 300px;
+  }
+
+  ul {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  ul li {
+    display: block;
+    margin: 0px auto;
+  }
+
+  ul li button {
+    min-width: 300px;
+    margin-right: 0 !important;
+    padding: 5px 0;
+    margin: 5px 0;
+  }
+}

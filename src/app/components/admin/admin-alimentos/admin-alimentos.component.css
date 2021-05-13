@@ -1,0 +1,7 @@
+.example-container {
+  overflow-x: scroll;
+}
+
+input[type="file"] {
+  color: transparent;
+}

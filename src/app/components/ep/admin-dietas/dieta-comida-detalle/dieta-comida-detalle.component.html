@@ -1,0 +1,350 @@
+<app-header-ep></app-header-ep>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong>
+        <a href="/home-ep">Home EP</a> >
+        <a href="/dietas-listado">Admin Dietas</a> >
+        <a href="/dieta/{{ dieta._id }}">Dieta Vista General</a> >
+        <a href="/dieta-detalle/{{ diaSemanaDieta._id }}"
+          >Dieta Vista Detalle</a
+        >
+        > Comida</strong
+      >
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Comida</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form #comidaForm="ngForm">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th style="text-align: center; font-size: 1.2em">Nombre</th>
+                  <th style="text-align: center; font-size: 1.2em">Hora</th>
+                  <th
+                    style="
+                      text-align: right;
+                      padding-right: 20px;
+                      font-size: 1.2em;
+                    "
+                  >
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td
+                    style="max-width: 40%; text-align: center; font-size: 2em"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      style="text-align: center; font-size: 1.2em"
+                      name="nombre"
+                      [(ngModel)]="comida.nombre"
+                    />
+                  </td>
+
+                  <td
+                    style="max-width: 40%; text-align: center; font-size: 2em"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      style="text-align: center; font-size: 1.2em"
+                      name="hora"
+                      [(ngModel)]="comida.hora"
+                    />
+                  </td>
+
+                  <td style="text-align: right; padding-right: 20px">
+                    <button
+                      class="btn btn-primary btn-sm"
+                      (click)="editComida(comida)"
+                    >
+                      <i class="material-icons">save</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+
+          <div class="form-group" style="margin: 10px 0">
+            <p style="color: red">{{ errorFormComida }}</p>
+            <p style="color: green">{{ msgFormComida }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3 pt-3">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Alimentos</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form #detallecomidaForm="ngForm">
+            <table class="table table-striped" style="table-layout: fixed">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                  <th style="max-width: 30px">P</th>
+                  <th style="max-width: 30px">Chs</th>
+                  <th style="max-width: 30px">G</th>
+                  <th style="max-width: 30px">Kcal</th>
+                  <th>Observaciones</th>
+
+                  <th style="text-align: right; padding-right: 20px">
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let detalleComida of detallesComida">
+                  <td>{{ detalleComida.idAlimento["nombre"] }}</td>
+                  <td>{{ detalleComida.cantidad }}</td>
+                  <td style="max-width: 30px">
+                    {{ detalleComida.proteinasDetalleComida }}
+                  </td>
+                  <td style="max-width: 30px">
+                    {{ detalleComida.chsDetalleComida }}
+                  </td>
+                  <td style="max-width: 30px">
+                    {{ detalleComida.grasasDetalleComida }}
+                  </td>
+                  <td style="max-width: 30px">
+                    {{ detalleComida.kcalDetalleComida }}
+                  </td>
+                  <td>{{ detalleComida.observaciones }}</td>
+
+                  <td style="text-align: right; padding-right: 20px">
+                    <!-- <button
+                      class="btn btn-primary btn-sm"
+                      (click)="updateDetalleComida(detalleComida)"
+
+                    >
+                      <i class="material-icons">save</i>
+                    </button> -->
+
+                    <button
+                      class="btn btn-danger btn-sm"
+                      style="margin-left: 10px"
+                      (click)="deleteDetalleComida(detalleComida)"
+                    >
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+
+          <button
+            class="btn btn-primary btn-sm"
+            style="float: right"
+            (click)="showFormNuevoAlimento()"
+          >
+            AÑADIR NUEVO ALIMENTO
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div
+    class="row justify-content-center pb-3 pt-3"
+    *ngIf="mostrarFormNuevoAlimento"
+  >
+    <div class="col-md-12">
+      <form #detalleComidaNueva="ngForm">
+        <mat-card class="example-card mb-3">
+          <div class="row justify-content-center">
+            <div class="col-md-7" style="border-right: 1px solid #ccc">
+              <div><strong>Grupos de alimentos</strong></div>
+              <div class="row justify-content-center">
+                <div class="row justify-content-center">
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('pescados')"
+                    >
+                      PESCADOS
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('legumbres')"
+                    >
+                      LEGOUMBRES
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('carnes')"
+                    >
+                      CARNES
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('huevos')"
+                    >
+                      HUEVOS
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('cereales')"
+                    >
+                      CEREALES
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('frutas')"
+                    >
+                      FRUTAS
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('aceite')"
+                    >
+                      ACEITE
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('lacteos')"
+                    >
+                      LÁCTEOS
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('otros')"
+                    >
+                      OTROS
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-group" style="text-align: center">
+                <div>
+                  <span><strong>Listado:</strong></span>
+                </div>
+                <mat-form-field
+                  appearance="outline"
+                  style="padding-top: 20px; max-width: 300px; width: 100%"
+                >
+                  <mat-label>{{ grupoAlimentoTitle }}</mat-label>
+
+                  <mat-select
+                    (selectionChange)="nombreAlimento($event)"
+                    [(ngModel)]="idAlimento"
+                    name="idAlimento"
+                    size="1"
+                  >
+                    <mat-option
+                      *ngFor="let alimento of alimentos"
+                      [value]="alimento._id"
+                    >
+                      {{ alimento.nombre }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card class="example-card">
+          <div class="row justify-content-center">
+            <div class="col-md-8 justify-content-center">
+              <div
+                style="
+                  text-align: center;
+                  margin: 30px 0;
+                  font-size: 1.1em;
+                  border-bottom: 1px solid #ccc;
+                "
+              >
+                {{ nAlimento }}
+              </div>
+
+              <div>
+                <span style="display: inline-block"
+                  ><input
+                    type="text"
+                    class="form-control"
+                    name="cantidad"
+                    placeholder="Cantidad"
+                    [(ngModel)]="nuevoDetalleComida.cantidad"
+                /></span>
+
+                <span style="display: inline-block; padding: 0 20px">
+                  gr/ ml</span
+                >
+              </div>
+
+              <textarea
+                type="text"
+                class="form-control"
+                name="observaciones"
+                placeholder="Observaciones"
+                [(ngModel)]="nuevoDetalleComida.observaciones"
+                rows="2"
+              ></textarea>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <img
+                  style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
+                  mat-card-image
+                  src="{{ nFotoAlimento }}"
+                  alt=""
+                />
+              </div>
+              <div>
+                <button
+                  class="btn btn-primary btn-sm"
+                  style="float: right"
+                  (click)="guardarNuevoDetalleComida(detalleComidaNueva.value)"
+                >
+                  <i class="material-icons">save</i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="margin: 10px 0">
+            <p style="color: red">{{ errorFormNuevoDetalleComida }}</p>
+            <p style="color: green">{{ msgFormNuevoDetalleComida }}</p>
+          </div>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+</div>

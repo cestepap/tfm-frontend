@@ -1,0 +1,58 @@
+<app-header-user></app-header-user>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong><a href="/home-user">Home User</a> > Mis Dietas</strong>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" style='margin-bottom: 40px;'>
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Mis Dietas</mat-card-title>
+          <!-- <mat-card-subtitle>dietas</mat-card-subtitle> -->
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-striped ">
+            <thead>
+              <tr>
+                <th>Fecha Alta</th>
+                <th>Usuario-Cliente</th>
+                <th>Título</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dieta of dietas">
+                <td>{{ dieta.fechaInicio }}</td>
+                <td>{{ dieta.idCliente["username"] }}</td>
+                <td>{{ dieta.titulo }}</td>
+                <td>{{ dieta.estado }}</td>
+                <td>
+                  <a href="/user-dieta-detalle/{{ dieta._id }}"
+                    ><button
+                      class="btn btn-warning btn-sm"
+                      style="margin-right: 10px"
+                    >
+                      <i class="material-icons">edit</i>
+                    </button></a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </mat-card-content>
+      </mat-card>
+
+
+    </div>
+  </div>
+
+
+
+</div>
+

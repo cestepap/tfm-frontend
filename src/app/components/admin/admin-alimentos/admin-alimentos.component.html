@@ -1,0 +1,185 @@
+<app-header-admin></app-header-admin>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong><a href="/home-admin">Home Admin</a> > Admin Alimentos</strong>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <form #alimentosForm="ngForm" (ngSubmit)="addAlimento(alimentosForm)">
+            <div class="row justify-content-center">
+              <div class="col-md-4">
+                <div style="padding: 20px 0; font-weight: 800">
+                  Información del alimento:
+                </div>
+                <input
+                  type="hidden"
+                  name="_id"
+                  [(ngModel)]="selectedAlimento._id"
+                />
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="nombre"
+                    placeholder="Nombre"
+                    [(ngModel)]="selectedAlimento.nombre"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="descripcion"
+                    placeholder="Descripción"
+                    [(ngModel)]="selectedAlimento.descripcion"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="grupoAlimento"
+                    placeholder="Grupo de Alimento"
+                    [(ngModel)]="selectedAlimento.grupoAlimento"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="proteinas"
+                    placeholder="Proteinas"
+                    [(ngModel)]="selectedAlimento.proteinas"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="carbohidratos"
+                    placeholder="Carbohidratos"
+                    [(ngModel)]="selectedAlimento.carbohidratos"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="grasas"
+                    placeholder="Grasas"
+                    [(ngModel)]="selectedAlimento.grasas"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="kcal"
+                    placeholder="kcal"
+                    [(ngModel)]="selectedAlimento.kcal"
+                  />
+                </div>
+
+                <div class="form-group" style="margin: 10px 0">
+                  <p style="color: red">{{ errorForm }}</p>
+                  <p style="color: green">{{ msgForm }}</p>
+                </div>
+                
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <!-- <input type="file"
+                         (change)="handleFileInput($event.target.files)"> -->
+
+                  <img
+                    style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
+                    mat-card-image
+                    src="{{ selectedAlimento.imagen }}"
+                    alt=""
+                  />
+                </div>
+
+                <button class="btn btn-primary" style="float: right">
+                  <i class="material-icons">save</i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-striped" style="table-layout: fixed">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Grupos Alimento</th>
+                <th>P</th>
+                <th>CH</th>
+                <th>G</th>
+                <th>Kcal</th>
+                <th
+                  style="
+                    text-align: right;
+                    padding-right: 20px;
+                    font-size: 1.1em;
+                  "
+                >
+                  Acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let alimento of alimentos">
+                <td>{{ alimento.nombre }}</td>
+                <td>{{ alimento.descripcion }}</td>
+                <td>{{ alimento.grupoAlimento }}</td>
+                <td>{{ alimento.proteinas }}</td>
+                <td>{{ alimento.carbohidratos }}</td>
+                <td>{{ alimento.grasas }}</td>
+                <td>{{ alimento.kcal }}</td>
+
+                <td style="text-align: right; padding-right: 20px">
+                  <button
+                    class="btn btn-warning btn-sm"
+                    (click)="editAlimento(alimento)"
+                  >
+                    <i class="material-icons">edit</i>
+                  </button>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
+                    (click)="deleteAlimento(alimento._id)"
+                  >
+                    <i class="material-icons">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

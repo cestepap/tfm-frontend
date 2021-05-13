@@ -1,0 +1,22 @@
+.btn-ejercicio{
+    width: 100px;
+    text-align: center;
+}
+/* 
+.green {
+    background-color: green!important;
+}
+
+.red {
+    background-color: red!important;
+} */
+
+.mat-select-panel{
+    overflow:visible !important;
+  }
+
+  mat-list {
+    flex-grow: 1;
+    border: 3px solid gray;
+    overflow: auto;
+}

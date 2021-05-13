@@ -1,0 +1,360 @@
+<app-header-ep></app-header-ep>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong>
+        <a href="/home-ep">Home EP</a> >
+        <a href="/ep-rutina">Admin Rutinas</a> >
+        <a href="/rutina/{{ rutina._id }}">Rutina Vista General</a> > Rutina
+        Vista Detalle</strong
+      >
+    </div>
+  </div>
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-4">
+      <mat-card class="example-card h-100">
+        <div class="row justify-content-center">
+          <div class="col-12" style="text-align: center">
+            <p style="text-align: left"><strong>Datos del cliente:</strong></p>
+            <p>{{ infoCliente.username }}</p>
+            <img
+              mat-card-image
+              src="assets/img/perfil.jpg"
+              alt=""
+              style="width: 60px; text-align: center"
+            />
+            <p>{{ infoCliente.email }}</p>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-md-8">
+      <mat-card class="example-card">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <input
+              type="text"
+              class="form-control"
+              style="font-weight: 800; text-align: center; font-size: 1.1em"
+              name="titulo"
+              placeholder="Titulo de rutina"
+              [(ngModel)]="rutina.titulo"
+            />
+
+            <input
+              type="text"
+              class="form-control"
+              style="font-weight: 800; text-align: center; font-size: 1.1em"
+              name="fechaInicio"
+              placeholder="Fecha de inicio"
+              [(ngModel)]="rutina.fechaInicio"
+            />
+
+            <input
+              type="text"
+              class="form-control"
+              style="font-weight: 800; text-align: center; font-size: 1.1em"
+              name="descripcion"
+              placeholder="Descripcion"
+              [(ngModel)]="rutina.descripcion"
+            />
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <form #diaSemanaForm="ngForm">
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <input
+                type="text"
+                class="form-control"
+                style="
+                  text-transform: uppercase;
+                  text-align: center;
+                  font-weight: 800;
+                  font-size: 1.1em;
+                "
+                name="nombre"
+                disabled
+                [(ngModel)]="diaSemanaRutina.nombre"
+              />
+            </div>
+
+            <div class="col-md-3">
+              <input
+                type="text"
+                class="form-control"
+                style="text-align: center; font-size: 1.1em"
+                name="descripcionDia"
+                [(ngModel)]="diaSemanaRutina.descripcion"
+              />
+
+              <div class="form-group" style="margin: 10px 0">
+                <p style="color: red">{{ errorForm }}</p>
+                <p style="color: green">{{ msgForm }}</p>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <button
+                class="btn btn-primary btn-sm"
+                style="float: right"
+                (click)="editarDiaSemanaRutina(diaSemanaRutina)"
+              >
+                <i class="material-icons">save</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Ejercicios</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Series</th>
+                <th>Repeticiones</th>
+                <th>Observaciones</th>
+                <th style="text-align: right; padding-right: 20px">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detalleEjercicio of detallesEjercicios">
+                <td>{{ detalleEjercicio.idEjercicio["nombre"] }}</td>
+                <td>{{ detalleEjercicio.series }}</td>
+                <td>{{ detalleEjercicio.repeticiones }}</td>
+                <td>{{ detalleEjercicio.observaciones }}</td>
+
+                <td style="text-align: right; padding-right: 20px">
+                  <!-- <a href="/rutina-ejercicio/{{ detalleEjercicio._id }}">
+                    <button
+                      class="btn btn-warning btn-sm"
+                    >
+                      <i class="material-icons">edit</i>
+                    </button></a
+                  > -->
+                  <button
+                    class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
+                    (click)="eliminarEjercicio(detalleEjercicio._id)"
+                  >
+                    <i class="material-icons">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button
+            class="btn btn-primary btn-sm"
+            style="float: right"
+            (click)="nuevoEjercicio()"
+          >
+            AÑADIR UN NUEVO EJERCICIO
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div
+    class="row justify-content-center pb-3 mb-3"
+    *ngIf="mostrarFormNuevoEjercicio"
+  >
+    <div class="col-md-12">
+      <form #detalleEjercicioNuevo="ngForm">
+        <mat-card class="example-card" style="margin-bottom: 20px">
+          <div class="row justify-content-center">
+            <div class="col-md-7" style="border-right: 1px solid #ccc;">
+              <div><strong>Grupos musculares</strong></div>
+              <div class="row justify-content-center">
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('pectoral')"
+                  >
+                    PECTORAL
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('hombros')"
+                  >
+                    HOMBROS
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('piernas')"
+                  >
+                    PIERNAS
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('bíceps')"
+                  >
+                    BÍCEPS
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('tríceps')"
+                  >
+                    TRÍCEPS
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('glúteos')"
+                  >
+                    GLÚTEOS
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('femoral')"
+                  >
+                    FEMORAL
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('espalda')"
+                  >
+                    ESPALDA
+                  </button>
+                </div>
+                <div class="col-md-4 text-center">
+                  <button
+                    class="btn btn-secondary m-3 btn-ejercicio"
+                    (click)="filtrarGrupoMuscular('abdomen')"
+                  >
+                    ABDOMEN
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-group" style="text-align: center">
+                <div>
+                  <span><strong>Listado:</strong></span>
+                </div>
+                <mat-form-field
+                  appearance="outline"
+                  style="padding-top: 20px; max-width: 300px; width: 100%"
+                >
+                  <mat-label>{{ grupoMuscularTitle }}</mat-label>
+                  <mat-select
+                    (selectionChange)="nombreEjercicio($event)"
+                    [(ngModel)]="idEjercicio"
+                    name="idEjercicio"
+                    size="1"
+                  >
+                    <mat-option
+                      *ngFor="let ejercicio of ejercicios"
+                      [value]="ejercicio._id"
+                    >
+                      {{ ejercicio.nombre }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+
+        <mat-card class="example-card">
+          <div class="row justify-content-center">
+            <div class="col-md-7 justify-content-center">
+              <div
+                style="
+                  text-align: center;
+                  margin: 20px 0;
+                  font-size: 1.1em;
+                  border-bottom: 1px solid #ccc;
+                "
+              >
+                {{ nEjercicio }}
+              </div>
+
+              <div>
+                <span style="display: inline-block"
+                  ><input
+                    type="text"
+                    class="form-control"
+                    name="series"
+                    placeholder="Series"
+                    [(ngModel)]="nuevoDetalleEjercicio.series"
+                /></span>
+
+                <span style="display: inline-block; padding: 0 20px"
+                  ><input
+                    type="text"
+                    class="form-control"
+                    name="repeticiones"
+                    placeholder="Repeticiones"
+                    [(ngModel)]="nuevoDetalleEjercicio.repeticiones"
+                /></span>
+              </div>
+              <textarea
+                type="text"
+                class="form-control"
+                name="observaciones"
+                placeholder="Observaciones"
+                [(ngModel)]="nuevoDetalleEjercicio.observaciones"
+                rows="2"
+              ></textarea>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <img
+                  style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
+                  mat-card-image
+                  src="{{ nFotoEjercicio }}"
+                  alt=""
+                />
+              </div>
+              <div>
+                <button
+                  class="btn btn-primary btn-sm"
+                  style="float: right"
+                  (click)="saveDetalleEjercicio(detalleEjercicioNuevo.value)"
+                >
+                  <i class="material-icons">save</i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="margin: 10px 0">
+            <p style="color: red">{{ errorFormNuevoDetalleEjercicio }}</p>
+            <p style="color: green">{{ msgFormNuevoDetalleEjercicio }}</p>
+          </div>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+</div>

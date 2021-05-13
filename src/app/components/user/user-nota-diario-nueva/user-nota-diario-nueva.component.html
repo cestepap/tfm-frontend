@@ -1,0 +1,71 @@
+<app-header-user></app-header-user>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong
+        ><a href="/home-user">Home User</a> >
+        <a href="/user-diario">Mi diario</a> > Nota Nueva
+      </strong>
+    </div>
+  </div>
+
+  <mat-card class="example-card mb-3">
+    <div class="row justify-content-center pb-3">
+      <div class="col-md-10">
+        <div style="font-size: 1.1em">
+          <input
+            type="text"
+            class="form-control"
+            style="font-size: 1.1em; text-align: center; font-weight: 800;"
+            name="descripcion"
+            placeholder="Titulo del diario"
+            [ngModel]="diario[0].descripcion"
+          />
+        </div>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <form #miNota="ngForm">
+      <div class="row justify-content-center pt-3">
+        <div class="col-md-10">
+          <div>
+            <input
+              type="text"
+              class="form-control"
+              style="font-size: 1.1em"
+              name="fecha"
+              placeholder="Fecha de la nota de Diario"
+              [ngModel]="fechaNotaDiario"
+              disabled
+            />
+            <textarea
+              class="form-control"
+              style="font-size: 1.1em"
+              name="observaciones"
+              placeholder="observaciones"
+              rows="4"
+              [ngModel]="notaDiario.observaciones"
+            ></textarea>
+          </div>
+          <div class="form-group" style="margin: 10px 0">
+            <p style="color: red">{{ errorFormNotaDiario }}</p>
+            <p style="color: green">{{ msgFormNotaDiario }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-1">
+          <button
+            class="btn btn-primary btn-sm"
+            style="margin-left: 10px"
+            (click)="createNotaDiario(miNota.value)"
+          >
+            <i class="material-icons">save</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

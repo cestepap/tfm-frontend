@@ -1,0 +1,66 @@
+<app-header-ep></app-header-ep>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row" style="margin: 30px 0">
+    <div class="col">
+      <strong><a href="/home-ep">Home EP</a> > Admin Rutinas</strong>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Rutinas</mat-card-title>
+          <!-- <mat-card-subtitle>dietas</mat-card-subtitle> -->
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-striped ">
+            <thead>
+              <tr>
+                <th>Fecha Alta</th>
+                <th>Usuario-Cliente</th>
+                <th>Título</th>
+                <th>Estado</th>
+                <th style="text-align: center;">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rutina of rutinas">
+                <td>{{ rutina.fechaInicio }}</td>
+                <td>{{ rutina.idCliente["username"] }}</td>
+                <td>{{ rutina.titulo }}</td>
+                <td>{{ rutina.estado }}</td>
+                <td style="text-align: center;">
+                  <a href="/rutina/{{ rutina._id }}"
+                    ><button
+                      class="btn btn-warning btn-sm"
+                      style="margin-right: 10px"
+                    >
+                      <i class="material-icons">edit</i>
+                    </button></a
+                  >
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="deleteRutina(rutina._id)"
+                  >
+                    <i class="material-icons">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button
+          class="btn btn-primary btn-sm"
+          style="float: right"
+          (click)="newRutina()"
+        >
+          NUEVA RUTINA
+        </button>
+        </mat-card-content>
+      </mat-card>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<app-header-ep></app-header-ep>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3" >
+    <div class="col">
+      <strong
+        ><a href="/ep-rutina">Admin Rutinas</a> >
+        <a href="/rutina/{{ rutina._id }}">Rutina Vista General</a> >
+        <a href="/rutina-detalle/{{ diaSemanaRutina._id }}">Rutina Vista Detalle</a> > Ejercicio</strong
+      >    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Ejercicio</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form #detalleEjercicioForm="ngForm">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Series</th>
+                  <th>Repeticiones</th>
+                  <th>Observaciones</th>
+                  <th style='text-align: right; padding-right: 20px;'>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ detalleEjercicio.idEjercicio["nombre"] }}</td>
+
+                  <td style="max-width: 50px;">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="series"
+                      placeholder="sdsd"
+                      [(ngModel)]="detalleEjercicio.series"
+                    />
+                  </td>
+
+                  <td style="max-width: 50px;">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="repeticiones"
+                      [(ngModel)]="detalleEjercicio.repeticiones"
+                    />
+                  </td>
+
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="observaciones"
+                      [(ngModel)]="detalleEjercicio.observaciones"
+                    />
+                  </td>
+
+                  <td style='text-align: right; padding-right: 20px;'>
+                    <button
+                      class="btn btn-primary btn-sm"
+                      (click)="editEjercicio(detalleEjercicio)"
+                    >
+                      <i class="material-icons">save</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <input type="hidden" name='idEjercicio' value="{{  detalleEjercicio.idEjercicio['id'] }}" />
+          </form>
+
+          <div class="form-group" style="margin: 10px 0">
+            <p style="color: red">{{ errorForm }}</p>
+            <p style="color: green">{{ msgForm }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

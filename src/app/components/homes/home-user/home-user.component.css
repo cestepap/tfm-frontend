@@ -1,0 +1,8 @@
+td {
+    min-width: 100px;
+    max-width: 20%;
+}
+
+td:last-child {
+    width: 100px;
+}

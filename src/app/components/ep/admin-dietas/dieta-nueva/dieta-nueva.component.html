@@ -1,0 +1,71 @@
+<app-header-ep></app-header-ep>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong><a href="/rutinas-listado">Admin Dietas</a> > Dieta nueva</strong>
+    </div>
+  </div>
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <form #nuevaDieta="ngForm">
+          <div class="row justify-content-center">
+            <div class="col-md-11">
+              <input
+                type="text"
+                class="form-control"
+                name="titulo"
+                placeholder="Titulo de la dieta"
+                [(ngModel)]="newDieta.titulo"
+              />
+
+              <input
+                type="text"
+                class="form-control"
+                name="fechaInicio"
+                placeholder="Fecha de inicio"
+                [(ngModel)]="newDieta.fechaInicio"
+              />
+
+              <input
+                type="text"
+                class="form-control"
+                name="descripcion"
+                placeholder="Descripcion"
+                [(ngModel)]="newDieta.descripcion"
+              />
+
+              <div class="form-group" style="margin: 20px 0; float: right">
+                <label style="display: inline-block; margin-right: 5px">
+                  Selecciona al Usuario - Cliente
+                </label>
+                <mat-form-field appearance="fill" style="display: inline-block">
+                  <mat-select [(ngModel)]="idUsuario" name="idUsuario">
+                    <mat-option *ngFor="let user of users" [value]="user._id">
+                      {{ user.username }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="form-group" style="margin: 10px 0">
+                <p style="color: red">{{ errorForm }}</p>
+              </div>
+            </div>
+
+            <div class="col-md-1">
+              <button
+                class="btn btn-primary btn-sm"
+                style="margin-left: 10px"
+                (click)="saveNuevaRutina(nuevaDieta.value)"
+              >
+                <i class="material-icons">save</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

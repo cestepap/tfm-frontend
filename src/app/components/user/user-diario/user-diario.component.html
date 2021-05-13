@@ -1,0 +1,165 @@
+<app-header-user></app-header-user>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong><a href="/home-user">Home User</a> > Mi Diario </strong>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3" *ngIf="mostrarFormDiario">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <form #nuevoDiario="ngForm">
+          <div class="row justify-content-center">
+            <div class="col-md-11">
+              <input
+                type="text"
+                class="form-control"
+                name="descripcion"
+                placeholder="Titulo del diario"
+                [ngModel]="newDiario.descripcion"
+              />
+
+             
+            </div>
+
+            <div class="col-md-1">
+              <button
+                class="btn btn-primary btn-sm"
+                style="margin-left: 10px"
+                (click)="saveNewDiario(nuevoDiario.value)"
+              >
+                <i class="material-icons">save</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+
+  <mat-card class="example-card" *ngIf="mostrarDiario">
+    <mat-card class="example-card mb-3">
+      <form #miDiario="ngForm">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div style="font-size: 1.1em">
+              <input
+                type="text"
+                class="form-control"
+                style="font-size: 1.1em; text-align: center; font-weight: 800;"
+                name="descripcion"
+                placeholder="Titulo del diario"
+                [ngModel]="diario[0].descripcion"
+              />
+            </div>
+            <div class="form-group" style="margin: 10px 0">
+              <p style="color: green">{{ msgForm }}</p>
+            </div>
+            <div class="form-group" style="margin: 10px 0">
+              <p style="color: red">{{ errorFormDiario }}</p>
+              <p style="color: green">{{ msgFormDiario }}</p>
+            </div>
+          </div>
+
+          <div class="col-md-1">
+            <button
+              class="btn btn-primary btn-sm"
+              style="margin-left: 10px"
+              (click)="updateDiario(miDiario.value)"
+            >
+              <i class="material-icons">save</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+
+    <div class="row justify-content-center pb-3">
+      <div class="col-md-12">
+        <mat-card class="example-card">
+          <div style="text-align: center">
+            <button
+              (click)="onPreviousMonth()"
+              style="padding: 10px; margin: 10px"
+              class="btn btn-secondary btn-sm"
+            >
+              Anterior
+            </button>
+            <span>
+              {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}
+            </span>
+            <button
+              (click)="onNextMonth()"
+              style="padding: 10px; margin: 10px"
+              class="btn btn-secondary btn-sm"
+            >
+              Siguiente
+            </button>
+          </div>
+
+          <br />
+
+          <div class="calendar">
+            <span *ngFor="let weekDay of weekDaysName" class="wday">
+              {{ weekDay }}
+            </span>
+
+            <span
+              *ngFor="let day of monthDays"
+              class="day"
+              (click)="notaDiario(day)"
+            >
+              {{ day.number }}
+            </span>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+
+  <div class="row justify-content-center pt-3">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Notas del diario</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table class="table table-striped" style="table-layout: fixed">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Observaciones</th>
+                  <th style="text-align: right; padding-right: 20px">
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let nota of notasDiario">
+                  <td>{{ nota.fecha }}</td>
+                  <td>{{ nota.observaciones.substring(0,50) }}...</td>
+                  <td style="text-align: right; padding-right: 20px">
+                    <a href="user-nota-diario/{{ nota._id }}">
+                      <button class="btn btn-warning btn-sm">
+                        <i class="material-icons">edit</i>
+                      </button>
+                    </a>
+
+                    <button
+                      class="btn btn-danger btn-sm"
+                      style="margin-left: 10px"
+                      (click)="deleteNota(nota)"
+                    >
+                      <i class="material-icons">delete</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

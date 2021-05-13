@@ -1,0 +1,28 @@
+.calendar {
+  width: 100%;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+}
+
+.wday{
+    width: calc(100%/7);
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    background-color: #eee;
+}
+
+.day {
+    width: calc(100%/7);
+  display: inline-block;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.day:hover{
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+}

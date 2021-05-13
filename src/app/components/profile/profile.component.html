@@ -1,0 +1,92 @@
+<div *ngIf="header === 'Admin'">
+  <app-header-admin></app-header-admin>
+</div>
+
+<div *ngIf="header === 'EP'">
+  <app-header-ep></app-header-ep>
+</div>
+
+<div *ngIf="header === 'USER'">
+  <app-header-user></app-header-user>
+</div>
+
+
+<div class="container mt-5 justify-content-center">
+
+    <div class="row pb-3">
+      <div class="col">
+        <strong><a href="/">Home</a> > Mi perfil de usuario</strong>
+    </div>
+    </div>
+  
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+  
+              <div class="row justify-content-center">
+                <div class="col-md-8">
+                  <div style="padding: 20px 0; font-weight: 800">
+                    Mis datos personales:
+                </div>
+                  <input type="hidden" name="_id" [(ngModel)]="user._id" />
+  
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="username"
+                      placeholder="Enter your Fullname"
+                      [(ngModel)]="user.username"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="email"
+                      placeholder="Enter your Email"
+                      [(ngModel)]="user.email"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="role"
+                      placeholder="Enter your Role/s"
+                      [(ngModel)]="user.rol"
+                      disabled
+                    />
+                  </div>
+                  <div class="form-group" style="margin: 10px 0">
+                    <p style="color: red">{{ errorForm }}</p>
+                    <p style="color: green">{{ msgForm }}</p>
+                  </div>
+                </div>
+  
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <!-- <input type="file"
+                           (change)="handleFileInput($event.target.files)"> -->
+  
+                    <img
+                      style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
+                      mat-card-image
+                      src="{{ selectedUser.imagen }}"
+                      alt=""
+                    />
+                  </div>
+  
+                  <button class="btn btn-primary" style="float: right">
+                    <i class="material-icons">save</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  

@@ -1,0 +1,218 @@
+<app-header-ep></app-header-ep>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong>
+        <a href="/home-ep">Home EP</a> >
+        <a href="/dietas-listado">Admin Dietas</a> >
+        <a href="/dieta/{{ dieta._id }}">Dieta Vista General</a> > Dieta Vista
+        Detalle</strong
+      >
+    </div>
+  </div>
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-4">
+      <mat-card class="example-card h-100">
+        <div class="row justify-content-center">
+          <div class="col-12" style="text-align: center">
+            <p style="text-align: left"><strong>Datos del cliente:</strong></p>
+            <p>{{ infoCliente.username }}</p>
+            <img
+              mat-card-image
+              src="assets/img/perfil.jpg"
+              alt=""
+              style="width: 60px; text-align: center"
+            />
+            <p>{{ infoCliente.email }}</p>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-md-8">
+      <mat-card class="example-card">
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <input
+              type="text"
+              class="form-control"
+              style="font-weight: 800; text-align: center; font-size: 1.1em"
+              name="titulo"
+              placeholder="Titulo de la dieta"
+              [(ngModel)]="dieta.titulo"
+            />
+
+            <input
+              type="text"
+              class="form-control"
+              style="font-weight: 800; text-align: center; font-size: 1.1em"
+              name="fechaInicio"
+              placeholder="Fecha de inicio"
+              [(ngModel)]="dieta.fechaInicio"
+            />
+
+            <input
+              type="text"
+              class="form-control"
+              style="font-weight: 800; text-align: center; font-size: 1.1em"
+              name="descripcion"
+              placeholder="Descripcion"
+              [(ngModel)]="dieta.descripcion"
+            />
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <form #diaSemanaForm="ngForm">
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <input
+                type="text"
+                class="form-control"
+                style="
+                  text-transform: uppercase;
+                  text-align: center;
+                  font-weight: 800;
+                  font-size: 1.1em;
+                "
+                name="nombreDia"
+                disabled
+                [(ngModel)]="diaSemanaDieta.nombre"
+              />
+            </div>
+            <div class="col-md-3">
+              <input
+                type="text"
+                class="form-control"
+                style="text-align: center; font-size: 1.1em"
+                name="descripcionDia"
+                [(ngModel)]="diaSemanaDieta.descripcion"
+              />
+
+              <div class="form-group" style="margin: 10px 0">
+                <p style="color: red">{{ errorForm }}</p>
+                <p style="color: green">{{ msgForm }}</p>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <button
+                class="btn btn-primary btn-sm"
+                style="float: right"
+                (click)="editarDiaSemanaDieta(diaSemanaDieta)"
+              >
+                <i class="material-icons">save</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Comidas</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Hora</th>
+                <!-- <th>Proteinas</th>
+                <th>Carbohidratos</th>
+                <th>Grasas</th>
+                <th>Kcal</th> -->
+
+                <th style="text-align: right; padding-right: 20px">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let comida of comidas">
+                <td>{{ comida.nombre }}</td>
+                <td>{{ comida.hora }}</td>
+                <!-- <td>{{ comida.proteinasComida }}</td>
+                <td>{{ comida.chsComida }}</td>
+                <td>{{ comida.grasasComida }}</td>
+                <td>{{ comida.kcalComida }}</td> -->
+
+                <td style="text-align: right; padding-right: 20px">
+                  <a href="/dieta-comida-detalle/{{ comida._id }}">
+                    <button class="btn btn-warning btn-sm">
+                      <i class="material-icons">edit</i>
+                    </button></a
+                  >
+                  <button
+                    class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
+                    (click)="eliminarComida(comida._id)"
+                  >
+                    <i class="material-icons">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button
+            class="btn btn-primary btn-sm"
+            style="float: right"
+            (click)="showFormNuevaComida()"
+          >
+            AÑADIR NUEVA COMIDA
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row justify-content-center pb-3" *ngIf="mostrarFormNuevaComida">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <form #formNuevaComida="ngForm">
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <input
+                type="text"
+                class="form-control"
+                name="nombre"
+                placeholder="Nombre de la comida"
+                [(ngModel)]="nuevaComida.nombre"
+              />
+
+              <input
+                type="text"
+                class="form-control"
+                name="hora"
+                placeholder="Hora de la comida"
+                [(ngModel)]="nuevaComida.hora"
+              />
+
+              <div class="form-group" style="margin: 10px 0">
+                <p style="color: red">{{ errorFormComida }}</p>
+                <p style="color: green">{{ msgFormComida }}</p>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <button
+                class="btn btn-primary btn-sm"
+                (click)="guardarNuevaComida(nuevaComida)"
+              >
+                <i class="material-icons">save</i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
