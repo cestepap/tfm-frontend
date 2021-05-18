@@ -17,9 +17,9 @@
           >
             <div class="row justify-content-center">
               <div class="col-md-8">
-                <div style="padding: 20px 0; font-weight: 800">
+                <!-- <div style="padding: 20px 0; font-weight: 800">
                   Información del ejercicio:
-                </div>
+                </div> -->
                 <input
                   type="hidden"
                   name="_id"
@@ -61,7 +61,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <!-- <input type="file"
                          (change)="handleFileInput($event.target.files)"> -->
@@ -73,7 +73,8 @@
                     alt=""
                   />
                 </div>
-
+              </div>
+              <div class="col-md-1">
                 <button class="btn btn-primary" style="float: right">
                   <i class="material-icons">save</i>
                 </button>
@@ -115,13 +116,11 @@
                 <td
                   style="
                     text-align: right;
-                    padding-right: 20px;
                     min-width: 140px;
                   "
                 >
                   <button
                     class="btn btn-warning btn-sm"
-                    style="margin-right: 10px"
                     (click)="editEjercicio(ejercicio)"
                   >
                     <i class="material-icons">edit</i>

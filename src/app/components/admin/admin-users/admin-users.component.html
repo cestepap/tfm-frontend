@@ -1,7 +1,6 @@
 <app-header-admin></app-header-admin>
 
 <div class="container mt-5 justify-content-center">
-
   <div class="row pb-3">
     <div class="col">
       <strong><a href="/">Home</a> > Admin Usuarios</strong>
@@ -13,20 +12,23 @@
       <div class="card">
         <div class="card-body">
           <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
-
             <div class="row justify-content-center">
               <div class="col-md-8">
-                <div style="padding: 20px 0; font-weight: 800">
+                <!-- <div style="padding: 20px 0; font-weight: 800">
                   Información del usuario:
-                </div>
-                <input type="hidden" name="_id" [(ngModel)]="selectedUser._id" />
+                </div> -->
+                <input
+                  type="hidden"
+                  name="_id"
+                  [(ngModel)]="selectedUser._id"
+                />
 
                 <div class="form-group">
                   <input
                     type="text"
                     class="form-control"
                     name="username"
-                    placeholder="Enter your Fullname"
+                    placeholder="Nombre de usuario"
                     [(ngModel)]="selectedUser.username"
                   />
                 </div>
@@ -35,7 +37,7 @@
                     type="text"
                     class="form-control"
                     name="email"
-                    placeholder="Enter your Email"
+                    placeholder="Email del usuario"
                     [(ngModel)]="selectedUser.email"
                   />
                 </div>
@@ -44,7 +46,7 @@
                     type="text"
                     class="form-control"
                     name="role"
-                    placeholder="Enter your Role/s"
+                    placeholder="Rol del usuario"
                     [(ngModel)]="selectedUser.rol"
                     disabled
                   />
@@ -55,7 +57,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <!-- <input type="file"
                          (change)="handleFileInput($event.target.files)"> -->
@@ -67,7 +69,8 @@
                     alt=""
                   />
                 </div>
-
+              </div>
+              <div class="col-md-1">
                 <button class="btn btn-primary" style="float: right">
                   <i class="material-icons">save</i>
                 </button>
@@ -90,7 +93,12 @@
                 <th>Email</th>
                 <th>Role</th>
                 <th
-                  style="text-align: right; padding-right: 20px; font-size: 1.2em; min-width: 140px"
+                  style="
+                    text-align: right;
+                    padding-right: 20px;
+                    font-size: 1.2em;
+                    min-width: 140px;
+                  "
                 >
                   Acciones
                 </th>
@@ -101,8 +109,11 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.rol }}</td>
-                <td style="text-align: right; padding-right: 20px; min-width: 140px">
-                  <button class="btn btn-warning btn-sm" (click)="editUser(user)">
+                <td style="text-align: right; min-width: 140px">
+                  <button
+                    class="btn btn-warning btn-sm"
+                    (click)="editUser(user)"
+                  >
                     <i class="material-icons">edit</i>
                   </button>
                   <button

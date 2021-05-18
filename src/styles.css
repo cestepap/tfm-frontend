@@ -2,14 +2,30 @@
 
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-.mat-card{
-    background: #f5f9ff;
-    border: 1px solid #ddd;
-  }
+.mat-card {
+  background: #f5f9ff;
+  border: 1px solid #ddd;
+}
 
-  table{
-    table-layout: "fixed";
+table {
+  table-layout: "fixed";
+}
+
+table tr td {
+  word-break: break-all;
+}
+
+@media (max-width: 900px) {
+  .datos-cliente-mobile {
+    margin-bottom: 20px;
   }
+}

@@ -22,7 +22,7 @@
                 <th>Usuario-Cliente</th>
                 <th>Título</th>
                 <th>Estado</th>
-                <th>Acciones</th>
+                <th style="text-align: center">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -31,7 +31,7 @@
                 <td>{{ dieta.idCliente["username"] }}</td>
                 <td>{{ dieta.titulo }}</td>
                 <td>{{ dieta.estado }}</td>
-                <td>
+                <td style="text-align: center">
                   <a href="/user-dieta-detalle/{{ dieta._id }}"
                     ><button
                       class="btn btn-warning btn-sm"

@@ -58,13 +58,13 @@ export class UserDiarioComponent implements OnInit {
   ngOnInit(): void {
     this.setMonthDays(this.calendarCreator.getCurrentMonth());
 
-    this.weekDaysName.push('Lunes');
-    this.weekDaysName.push('Martes');
-    this.weekDaysName.push('Miércoles');
-    this.weekDaysName.push('Jueves');
-    this.weekDaysName.push('Viernes');
-    this.weekDaysName.push('Sábado');
-    this.weekDaysName.push('Domingo');
+    this.weekDaysName.push('L');
+    this.weekDaysName.push('M');
+    this.weekDaysName.push('X');
+    this.weekDaysName.push('J');
+    this.weekDaysName.push('V');
+    this.weekDaysName.push('S');
+    this.weekDaysName.push('D');
 
     console.log(this.user);
     this.getDiario();

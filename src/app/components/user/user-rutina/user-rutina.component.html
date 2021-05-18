@@ -22,7 +22,7 @@
                 <th>Usuario-Cliente</th>
                 <th>Título</th>
                 <th>Estado</th>
-                <th>Acciones</th>
+                <th style="text-align: center">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -31,11 +31,10 @@
                 <td>{{ rutina.idCliente["username"] }}</td>
                 <td>{{ rutina.titulo }}</td>
                 <td>{{ rutina.estado }}</td>
-                <td>
+                <td style="text-align: center">
                   <a href="/user-rutina-detalle/{{ rutina._id }}"
                     ><button
                       class="btn btn-warning btn-sm"
-                      style="margin-right: 10px"
                     >
                       <i class="material-icons">edit</i>
                     </button></a

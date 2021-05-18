@@ -5,3 +5,9 @@
 input[type="file"] {
   color: transparent;
 }
+
+@media (max-width: 900px) {
+  .mobile {
+    display: none;
+  }
+}

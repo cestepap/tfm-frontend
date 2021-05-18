@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="row justify-content-center pb-3">
-    <div class="col-md-4">
+    <div class="col-md-4 datos-cliente-mobile">
       <mat-card class="example-card h-100">
         <div class="row justify-content-center">
           <div class="col-12" style="text-align: center">
@@ -124,22 +124,31 @@
           <mat-card-title>Ejercicios</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <table class="table table-striped">
+          <table class="table table-striped" style="table-layout: fixed">
             <thead>
               <tr>
                 <th>Nombre</th>
-                <th>Series</th>
-                <th>Repeticiones</th>
-                <th>Observaciones</th>
-                <th style="text-align: right; padding-right: 20px">Acciones</th>
+                <th style="max-width: 30px">Series</th>
+                <th style="max-width: 30px">Reps</th>
+                <th style="max-width: 30px">Obs.</th>
+                <th
+                  style="
+                    text-align: right;
+                    padding-right: 20px;
+                    font-size: 1.1em;
+                    min-width: 140px;
+                  "
+                >
+                  Acciones
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let detalleEjercicio of detallesEjercicios">
                 <td>{{ detalleEjercicio.idEjercicio["nombre"] }}</td>
-                <td>{{ detalleEjercicio.series }}</td>
-                <td>{{ detalleEjercicio.repeticiones }}</td>
-                <td>{{ detalleEjercicio.observaciones }}</td>
+                <td style="max-width: 30px">{{ detalleEjercicio.series }}</td>
+                <td style="max-width: 30px">{{ detalleEjercicio.repeticiones }}</td>
+                <td style="max-width: 30px">{{ detalleEjercicio.observaciones }}</td>
 
                 <td style="text-align: right; padding-right: 20px">
                   <!-- <a href="/rutina-ejercicio/{{ detalleEjercicio._id }}">
@@ -151,7 +160,6 @@
                   > -->
                   <button
                     class="btn btn-danger btn-sm"
-                    style="margin-left: 10px"
                     (click)="eliminarEjercicio(detalleEjercicio._id)"
                   >
                     <i class="material-icons">delete</i>
@@ -180,7 +188,7 @@
       <form #detalleEjercicioNuevo="ngForm">
         <mat-card class="example-card" style="margin-bottom: 20px">
           <div class="row justify-content-center">
-            <div class="col-md-7" style="border-right: 1px solid #ccc;">
+            <div class="col-md-7" style="border-right: 1px solid #ccc">
               <div><strong>Grupos musculares</strong></div>
               <div class="row justify-content-center">
                 <div class="col-md-4 text-center">

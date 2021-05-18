@@ -12,7 +12,7 @@
   </div>
 
   <div class="row justify-content-center pb-3">
-    <div class="col-md-4">
+    <div class="col-md-4 datos-cliente-mobile">
       <mat-card class="example-card h-100">
         <div class="row justify-content-center">
           <div class="col-12" style="text-align: center">
@@ -127,33 +127,37 @@
         </mat-card-header>
         <mat-card-content>
           <table class="table table-striped">
-            <thead>
-            
-            </thead>
+            <thead></thead>
             <tbody>
               <tr *ngFor="let detalleEjercicio of detallesEjercicios">
-                <td style="width: 80%">
-                  <div style='padding: 5px 0;'>
+                <td style="width: 60%">
+                  <div style="padding: 5px 0">
                     Ejercicio:
                     <strong>{{
                       detalleEjercicio.idEjercicio["nombre"]
                     }}</strong>
                   </div>
 
-                  <div style="display: block; padding: 5px 0;">
+                  <div style="display: block; padding: 5px 0">
                     <span>Series: {{ detalleEjercicio.series }} / </span>
                     <span
                       >Repeticiones: {{ detalleEjercicio.observaciones }}
                     </span>
                   </div>
 
-                  <div style='padding: 5px 0;'>
+                  <div style="padding: 5px 0">
                     Observaciones: {{ detalleEjercicio.observaciones }}
                   </div>
                 </td>
                 <td>
                   <img
-                    style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
+                    style="
+                      width: 100%;
+                      border: 5px solid #ccc;
+                      margin: 5px 0;
+                      max-width: 300px;
+                      float: right;
+                    "
                     mat-card-image
                     src="{{ detalleEjercicio.idEjercicio['imagen'] }}"
                     alt=""

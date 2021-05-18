@@ -14,14 +14,14 @@
           <!-- <mat-card-subtitle>dietas</mat-card-subtitle> -->
         </mat-card-header>
         <mat-card-content>
-          <table class="table table-striped ">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th>Fecha Alta</th>
                 <th>Usuario-Cliente</th>
                 <th>Título</th>
                 <th>Estado</th>
-                <th style="text-align: center;">Acciones</th>
+                <th style="text-align: center">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -30,17 +30,18 @@
                 <td>{{ rutina.idCliente["username"] }}</td>
                 <td>{{ rutina.titulo }}</td>
                 <td>{{ rutina.estado }}</td>
-                <td style="text-align: center;">
+                <td style="text-align: center">
                   <a href="/rutina/{{ rutina._id }}"
                     ><button
                       class="btn btn-warning btn-sm"
-                      style="margin-right: 10px"
+                      style="margin: 5px;"
                     >
                       <i class="material-icons">edit</i>
                     </button></a
                   >
                   <button
                     class="btn btn-danger btn-sm"
+                    style="margin: 5px;"
                     (click)="deleteRutina(rutina._id)"
                   >
                     <i class="material-icons">delete</i>
@@ -51,16 +52,14 @@
           </table>
 
           <button
-          class="btn btn-primary btn-sm"
-          style="float: right"
-          (click)="newRutina()"
-        >
-          NUEVA RUTINA
-        </button>
+            class="btn btn-primary btn-sm"
+            style="float: right"
+            (click)="newRutina()"
+          >
+            NUEVA RUTINA
+          </button>
         </mat-card-content>
       </mat-card>
-
-
     </div>
   </div>
 </div>

@@ -1,7 +1,13 @@
-.btn-alimento{
-    max-width: 150px;
-    width: 75%;
-    text-align: center;
-    border-radius: 10px;
-    word-break: break-word;
+.btn-alimento {
+  max-width: 150px;
+  width: 75%;
+  text-align: center;
+  border-radius: 10px;
+  word-break: break-word;
+}
+
+@media (max-width: 900px) {
+  .mobile {
+    display: none;
+  }
 }

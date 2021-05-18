@@ -21,7 +21,7 @@
                 <th>Usuario-Cliente</th>
                 <th>Título</th>
                 <th>Estado</th>
-                <th style="text-align: center;">Acciones</th>
+                <th style="text-align: center">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -30,17 +30,18 @@
                 <td>{{ dieta.idCliente["username"] }}</td>
                 <td>{{ dieta.titulo }}</td>
                 <td>{{ dieta.estado }}</td>
-                <td style="text-align: center;">
+                <td style="text-align: center">
                   <a href="/dieta/{{ dieta._id }}"
                     ><button
                       class="btn btn-warning btn-sm"
-                      style="margin-right: 10px"
+                      style="margin: 5px;"
                     >
                       <i class="material-icons">edit</i>
                     </button></a
                   >
                   <button
                     class="btn btn-danger btn-sm"
+                    style="margin: 5px;"
                     (click)="deleteRutina(dieta._id)"
                   >
                     <i class="material-icons">delete</i>

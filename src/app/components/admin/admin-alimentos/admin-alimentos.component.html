@@ -13,7 +13,7 @@
         <div class="card-body">
           <form #alimentosForm="ngForm" (ngSubmit)="addAlimento(alimentosForm)">
             <div class="row justify-content-center">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div style="padding: 20px 0; font-weight: 800">
                   Información del alimento:
                 </div>
@@ -53,7 +53,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <input
                     type="number"
@@ -98,10 +98,9 @@
                   <p style="color: red">{{ errorForm }}</p>
                   <p style="color: green">{{ msgForm }}</p>
                 </div>
-                
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="form-group">
                   <!-- <input type="file"
                          (change)="handleFileInput($event.target.files)"> -->
@@ -113,7 +112,8 @@
                     alt=""
                   />
                 </div>
-
+              </div>
+              <div class="col-md-2">
                 <button class="btn btn-primary" style="float: right">
                   <i class="material-icons">save</i>
                 </button>
@@ -135,15 +135,16 @@
                 <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Grupos Alimento</th>
-                <th>P</th>
-                <th>CH</th>
-                <th>G</th>
-                <th>Kcal</th>
+                <th style="max-width: 30px" class="mobile">P</th>
+                <th style="max-width: 30px" class="mobile">CH</th>
+                <th style="max-width: 30px" class="mobile">G</th>
+                <th style="max-width: 30px" class="mobile">Kcal</th>
                 <th
                   style="
                     text-align: right;
                     padding-right: 20px;
                     font-size: 1.1em;
+                    min-width: 140px;
                   "
                 >
                   Acciones
@@ -155,12 +156,20 @@
                 <td>{{ alimento.nombre }}</td>
                 <td>{{ alimento.descripcion }}</td>
                 <td>{{ alimento.grupoAlimento }}</td>
-                <td>{{ alimento.proteinas }}</td>
-                <td>{{ alimento.carbohidratos }}</td>
-                <td>{{ alimento.grasas }}</td>
-                <td>{{ alimento.kcal }}</td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.proteinas }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.carbohidratos }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.grasas }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.kcal }}
+                </td>
 
-                <td style="text-align: right; padding-right: 20px">
+                <td style="text-align: right; min-width: 140px;">
                   <button
                     class="btn btn-warning btn-sm"
                     (click)="editAlimento(alimento)"
