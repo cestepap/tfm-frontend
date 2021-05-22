@@ -28,6 +28,8 @@ export class AdminAlimentosComponent implements OnInit {
   public errorForm = '';
   public msgForm = '';
 
+  public gruposAlimento = ['Huevos', 'Pescados', 'Legumbres', 'Lácteos', 'Carnes', 'Cereales', 'Frutas', 'Verduras', 'Aceite', 'Frutos Secos'];
+
   // public user: User = this.storeService.getItem('user');
   // public token: any = this.storeService.getItem('token');
 
@@ -54,8 +56,19 @@ export class AdminAlimentosComponent implements OnInit {
 
   }
 
-  resetForm(form: NgForm) {
-    form.reset();
+  resetForm() {
+    this.errorForm = '';
+    this.msgForm = '';
+    this.selectedAlimento = {
+      nombre: '',
+      descripcion: '',
+      grupoAlimento: '',
+      proteinas: 0,
+      carbohidratos: 0,
+      grasas: 0,
+      kcal: 0,
+      imagen:'assets/img/alimentos/food-icon.png'
+    };
   }
 
   getAlimentos() {
@@ -118,5 +131,7 @@ export class AdminAlimentosComponent implements OnInit {
 //       console.log(error);
 //     });
 // }
+
+
   
 }

@@ -49,8 +49,16 @@ export class AdminUsersComponent implements OnInit {
 
   }
 
-  resetForm(form: NgForm) {
-    form.reset();
+  resetForm() {
+    this.errorForm = '';
+    this.msgForm = '';
+    this.selectedUser = {
+      username: '',
+      email: '',
+      password: '',
+      rol: '',
+      imagen: 'assets/img/perfil.jpg'
+    };
   }
 
   getUsers() {

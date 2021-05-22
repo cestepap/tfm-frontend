@@ -18,7 +18,6 @@ import { Alimento } from '../../../../models/Alimento';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { resetFakeAsyncZone } from '@angular/core/testing';
 
 @Component({
   selector: 'app-dieta-comida-detalle',
@@ -57,9 +56,9 @@ export class DietaComidaDetalleComponent implements OnInit {
     cantidad: 0,
     observaciones: '',
     proteinasDetalleComida: 0,
-    chsDetalleComida:0,
-    grasasDetalleComida:0,
-    kcalDetalleComida:0
+    chsDetalleComida: 0,
+    grasasDetalleComida: 0,
+    kcalDetalleComida: 0,
   };
 
   // public selected = 'Listado';
@@ -73,7 +72,7 @@ export class DietaComidaDetalleComponent implements OnInit {
       carbohidratos: 0,
       grasas: 0,
       kcal: 0,
-      imagen: ''
+      imagen: '',
     },
   ];
 
@@ -145,6 +144,7 @@ export class DietaComidaDetalleComponent implements OnInit {
       (res) => {
         this.comida = res;
         console.log(this.comida);
+        this.storeService.addItem('comida', this.comida);
       },
       (err) => console.log(err)
     );
@@ -201,13 +201,15 @@ export class DietaComidaDetalleComponent implements OnInit {
 
   deleteDetalleComida(detalleComida) {
     if (confirm('Are you sure to you want to delete it?')) {
-      this.detalleComidaService.deleteDetalleComida(detalleComida._id).subscribe(
-        (res) => {
-          this.updateDieta(detalleComida, 'resta');
-          this.getDetalleComidaByComidaId();
-        },
-        (err) => console.log(err)
-      );
+      this.detalleComidaService
+        .deleteDetalleComida(detalleComida._id)
+        .subscribe(
+          (res) => {
+            this.updateDieta(detalleComida, 'resta');
+            this.getDetalleComidaByComidaId();
+          },
+          (err) => console.log(err)
+        );
     }
   }
 
@@ -219,10 +221,17 @@ export class DietaComidaDetalleComponent implements OnInit {
       idAlimento: form['idAlimento'],
       cantidad: form['cantidad'],
       observaciones: form['observaciones'],
-      proteinasDetalleComida: ((this.selectedAlimento.proteinas * this.nuevoDetalleComida.cantidad) / 100),
-      chsDetalleComida: ((this.selectedAlimento.carbohidratos * this.nuevoDetalleComida.cantidad) / 100),
-      grasasDetalleComida: ((this.selectedAlimento.grasas * this.nuevoDetalleComida.cantidad) / 100),
-      kcalDetalleComida: ((this.selectedAlimento.kcal * this.nuevoDetalleComida.cantidad) / 100)
+      proteinasDetalleComida:
+        (this.selectedAlimento.proteinas * this.nuevoDetalleComida.cantidad) /
+        100,
+      chsDetalleComida:
+        (this.selectedAlimento.carbohidratos *
+          this.nuevoDetalleComida.cantidad) /
+        100,
+      grasasDetalleComida:
+        (this.selectedAlimento.grasas * this.nuevoDetalleComida.cantidad) / 100,
+      kcalDetalleComida:
+        (this.selectedAlimento.kcal * this.nuevoDetalleComida.cantidad) / 100,
     };
 
     console.log(nuevoDetalleComida);
@@ -255,21 +264,26 @@ export class DietaComidaDetalleComponent implements OnInit {
     }
   }
 
-  updateDieta(nuevoDetalleComida, op){
+  updateDieta(nuevoDetalleComida, op) {
     console.log(nuevoDetalleComida);
     console.log(this.dieta);
 
-    if (op === 'suma'){
-      this.dieta['proteinasTotalesSemana'] += nuevoDetalleComida['proteinasDetalleComida'];
+    if (op === 'suma') {
+      this.dieta['proteinasTotalesSemana'] +=
+        nuevoDetalleComida['proteinasDetalleComida'];
       this.dieta['chsTotalesSemana'] += nuevoDetalleComida['chsDetalleComida'];
-      this.dieta['grasasTotalesSemana'] += nuevoDetalleComida['grasasDetalleComida'];
-      this.dieta['kcalTotalesSemana'] += nuevoDetalleComida['kcalDetalleComida'];
-    }
-    else {
-      this.dieta['proteinasTotalesSemana'] -= nuevoDetalleComida['proteinasDetalleComida'];
+      this.dieta['grasasTotalesSemana'] +=
+        nuevoDetalleComida['grasasDetalleComida'];
+      this.dieta['kcalTotalesSemana'] +=
+        nuevoDetalleComida['kcalDetalleComida'];
+    } else {
+      this.dieta['proteinasTotalesSemana'] -=
+        nuevoDetalleComida['proteinasDetalleComida'];
       this.dieta['chsTotalesSemana'] -= nuevoDetalleComida['chsDetalleComida'];
-      this.dieta['grasasTotalesSemana'] -= nuevoDetalleComida['grasasDetalleComida'];
-      this.dieta['kcalTotalesSemana'] -= nuevoDetalleComida['kcalDetalleComida'];
+      this.dieta['grasasTotalesSemana'] -=
+        nuevoDetalleComida['grasasDetalleComida'];
+      this.dieta['kcalTotalesSemana'] -=
+        nuevoDetalleComida['kcalDetalleComida'];
     }
 
     console.log(this.dieta);
@@ -277,15 +291,15 @@ export class DietaComidaDetalleComponent implements OnInit {
       (res) => {
         console.log(res);
         this.storeService.addItem('dieta', res);
-
       },
       (err) => console.log(err)
     );
   }
 
-  resetFormNuevoDetalleComida(){
-    this.nAlimento = "";
+  resetFormNuevoDetalleComida() {
+    this.nAlimento = '';
     this.nuevoDetalleComida.cantidad = 0;
     this.nuevoDetalleComida.observaciones = '';
   }
+
 }

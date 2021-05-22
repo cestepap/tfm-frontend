@@ -71,9 +71,20 @@
                 </div>
               </div>
               <div class="col-md-1">
-                <button class="btn btn-primary" style="float: right">
-                  <i class="material-icons">save</i>
-                </button>
+                <div style="display: grid; margin: 0px auto;">
+                  <button class="btn btn-primary btn-sm" style="float: right">
+                    <i class="material-icons">save</i>
+                  </button>
+                </div>
+                <div style="display: grid; margin: 0px auto">
+                  <button
+                    (click)="resetForm()"
+                    class="btn btn-secondary btn-sm"
+                    style="margin-top: 10px;"
+                  >
+                    <i class="material-icons">delete</i>
+                  </button>
+                </div>
               </div>
             </div>
           </form>
@@ -86,6 +97,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
+          <div class="table-wrapper">
           <table class="table table-striped" style="table-layout: fixed">
             <thead>
               <tr>
@@ -127,6 +139,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>

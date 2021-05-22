@@ -1,0 +1,100 @@
+<app-header-ep></app-header-ep>
+
+<div class="container mt-5 justify-content-center">
+  <div class="row pb-3">
+    <div class="col">
+      <strong>
+        <a href="/home-ep">Home EP</a> >
+        <a href="/dietas-listado">Admin Dietas</a> >
+        <a href="/dieta/{{ dieta._id }}">Dieta Vista General</a> >
+        <a href="/dieta-detalle/{{ diaSemanaDieta._id }}"
+          >Dieta Vista Detalle</a
+        > >
+        <a href="/dieta-comida-detalle/{{ comida._id }}"
+        >Comida</a
+      >
+        > Detalle Alimento</strong
+      >
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Editar Detalle de Alimento:</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form #detalleComidaForm="ngForm">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th style="text-align: center; font-size: 1em">Alimento</th>
+                  <th style="text-align: center; font-size: 1em">Cantidad</th>
+                  <th style="text-align: center; font-size: 1em">Observaciones</th>
+
+                  <th
+                    style="
+                      text-align: right;
+                      padding-right: 20px;
+                      font-size: 1em;
+                    "
+                  >
+                    Acciones
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td style="vertical-align: middle; font-weight: 800; text-align: center;">
+                    {{ detalleComida.idAlimento['nombre'] }}
+                  </td>
+
+
+                  <td
+                    style="width: 20%; text-align: center; font-size: 1.2em"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      style="text-align: center; font-size: 1.2em"
+                      name="cantidad"
+                      [(ngModel)]="detalleComida.cantidad"
+                    /> gr/ml
+                  </td>
+
+                  <td
+                  style="max-width: 40%; text-align: center; font-size: 1.2em"
+                >
+                  <input
+                    type="text"
+                    class="form-control"
+                    style="text-align: center; font-size: 1.2em"
+                    name="observaciones"
+                    [(ngModel)]="detalleComida.observaciones"
+                  />
+                </td>
+
+                  <td style="text-align: right; padding-right: 20px">
+                    <button
+                      class="btn btn-primary btn-sm"
+                      (click)="editDetalleComida(detalleComidaForm.value)"
+                    >
+                      <i class="material-icons">save</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+
+          <div class="form-group" style="margin: 10px 0">
+            <p style="color: red">{{ errorFormDetalleComida }}</p>
+            <p style="color: green">{{ msgFormDetalleComida }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  </div>

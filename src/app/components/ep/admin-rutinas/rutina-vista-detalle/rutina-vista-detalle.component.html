@@ -147,19 +147,22 @@
               <tr *ngFor="let detalleEjercicio of detallesEjercicios">
                 <td>{{ detalleEjercicio.idEjercicio["nombre"] }}</td>
                 <td style="max-width: 30px">{{ detalleEjercicio.series }}</td>
-                <td style="max-width: 30px">{{ detalleEjercicio.repeticiones }}</td>
-                <td style="max-width: 30px">{{ detalleEjercicio.observaciones }}</td>
+                <td style="max-width: 30px">
+                  {{ detalleEjercicio.repeticiones }}
+                </td>
+                <td style="max-width: 30px">
+                  {{ detalleEjercicio.observaciones }}
+                </td>
 
                 <td style="text-align: right; padding-right: 20px">
-                  <!-- <a href="/rutina-ejercicio/{{ detalleEjercicio._id }}">
-                    <button
-                      class="btn btn-warning btn-sm"
-                    >
+                  <a href="/rutina-ejercicio/{{ detalleEjercicio._id }}">
+                    <button class="btn btn-warning btn-sm">
                       <i class="material-icons">edit</i>
                     </button></a
-                  > -->
+                  >
                   <button
                     class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
                     (click)="eliminarEjercicio(detalleEjercicio._id)"
                   >
                     <i class="material-icons">delete</i>
@@ -194,15 +197,15 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('pectoral')"
+                    (click)="filtrarGrupoMuscular('Pectorales')"
                   >
-                    PECTORAL
+                    PECTORALES
                   </button>
                 </div>
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('hombros')"
+                    (click)="filtrarGrupoMuscular('Hombros')"
                   >
                     HOMBROS
                   </button>
@@ -210,7 +213,7 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('piernas')"
+                    (click)="filtrarGrupoMuscular('Piernas')"
                   >
                     PIERNAS
                   </button>
@@ -218,7 +221,7 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('bíceps')"
+                    (click)="filtrarGrupoMuscular('Bíceps')"
                   >
                     BÍCEPS
                   </button>
@@ -226,7 +229,7 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('tríceps')"
+                    (click)="filtrarGrupoMuscular('Tríceps')"
                   >
                     TRÍCEPS
                   </button>
@@ -234,7 +237,7 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('glúteos')"
+                    (click)="filtrarGrupoMuscular('Glúteos')"
                   >
                     GLÚTEOS
                   </button>
@@ -242,7 +245,7 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('femoral')"
+                    (click)="filtrarGrupoMuscular('Femoral')"
                   >
                     FEMORAL
                   </button>
@@ -250,7 +253,7 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('espalda')"
+                    (click)="filtrarGrupoMuscular('Espalda')"
                   >
                     ESPALDA
                   </button>
@@ -258,7 +261,7 @@
                 <div class="col-md-4 text-center">
                   <button
                     class="btn btn-secondary m-3 btn-ejercicio"
-                    (click)="filtrarGrupoMuscular('abdomen')"
+                    (click)="filtrarGrupoMuscular('Abdomen')"
                   >
                     ABDOMEN
                   </button>

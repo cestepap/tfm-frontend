@@ -37,10 +37,10 @@
                 "
               >
                 <span *ngIf="loginForm.get('email').errors?.required"
-                  >User email is required</span
+                  >El campo email es obligatorio</span
                 >
                 <span *ngIf="loginForm.get('email').errors?.pattern">
-                  User email must be like name@domin.com</span
+                  El email requiere el formato nombre@dominio.com</span
                 >
               </span>
             </div>
@@ -63,10 +63,7 @@
                 "
               >
                 <span *ngIf="loginForm.get('password').errors?.required"
-                  >User password is required</span
-                >
-                <span *ngIf="loginForm.get('password').errors?.pattern">
-                  User password must be like name@domin.com</span
+                  >La contraseña es obligatoria</span
                 >
               </span>
             </div>
@@ -114,7 +111,7 @@
                 "
               >
                 <span *ngIf="signupForm.get('username').errors?.required"
-                  >The username is required</span
+                  >El nombre de usuario es obligatorio</span
                 >
               </span>
             </div>
@@ -137,7 +134,7 @@
                 "
               >
                 <span *ngIf="signupForm.get('email2').errors?.required"
-                  >User email is required</span
+                  >El email es obligatorio</span
                 >
               </span>
             </div>
@@ -160,7 +157,7 @@
                 "
               >
                 <span *ngIf="signupForm.get('password2').errors?.required"
-                  >User password is required</span
+                  >La contraseña es obligatoria</span
                 >
               </span>
             </div>

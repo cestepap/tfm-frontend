@@ -7,20 +7,19 @@ import { StoreService } from '../../../services/store.service';
 @Component({
   selector: 'app-admin-ejercicios',
   templateUrl: './admin-ejercicios.component.html',
-  styleUrls: ['./admin-ejercicios.component.css']
+  styleUrls: ['./admin-ejercicios.component.css'],
 })
 export class AdminEjerciciosComponent implements OnInit {
-
   ejercicios: Ejercicio[];
 
   selectedEjercicio: Ejercicio = {
     nombre: '',
     descripcion: '',
     grupoMuscular: '',
-    imagen: 'assets/img/ejercicios/ejercicio-icon.jpg'
+    imagen: 'assets/img/ejercicios/ejercicio-icon.jpg',
   };
 
-  lista:string[]=["hola","que","tal", "estas"];
+  lista: string[] = ['hola', 'que', 'tal', 'estas'];
 
   // public user: User = this.storeService.getItem('user');
   // public token: any = this.storeService.getItem('token');
@@ -36,20 +35,37 @@ export class AdminEjerciciosComponent implements OnInit {
   public errorForm = '';
   public msgForm = '';
 
-  ngOnInit(): void {
+  public gruposMusculares = [
+    'Piernas',
+    'Hombros',
+    'Espalda',
+    'Femoral',
+    'Glúteos',
+    'Abdomen',
+    'Bíceps',
+    'Tríceps',
+    'Pectorales'
+  ];
 
+  ngOnInit(): void {
     this.getEjercicios();
 
     if (this.token) {
       console.log('permission granted. token saved');
-    }
-    else {
+    } else {
       console.log('no token saved');
     }
   }
 
-  resetForm(form: NgForm) {
-    form.reset();
+  resetForm() {
+    this.errorForm = '';
+    this.msgForm = '';
+    this.selectedEjercicio = {
+      nombre: '',
+      descripcion: '',
+      grupoMuscular: '',
+      imagen: 'assets/img/ejercicios/ejercicio-icon.jpg',
+    };
   }
 
   getEjercicios() {
@@ -67,7 +83,6 @@ export class AdminEjerciciosComponent implements OnInit {
       this.ejerciciosService.putEjercicio(form.value).subscribe(
         (res) => {
           console.log(res);
-          this.msgForm = 'Actualizado.';
           this.errorForm = '';
           this.getEjercicios();
         },
@@ -78,6 +93,7 @@ export class AdminEjerciciosComponent implements OnInit {
         (res) => {
           this.getEjercicios();
           form.reset();
+          this.msgForm = 'Actualizado.';
         },
         (err) => console.log(err)
       );
@@ -99,5 +115,4 @@ export class AdminEjerciciosComponent implements OnInit {
   editEjercicio(ejercicio: Ejercicio) {
     this.selectedEjercicio = ejercicio;
   }
-
 }

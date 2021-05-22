@@ -25,7 +25,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { HeaderAdminComponent } from './components/headers/header-admin/header-admin.component';
 import { HeaderComponent } from './components/headers/header/header.component';
 import { HeaderEpComponent } from './components/headers/header-ep/header-ep.component';
@@ -37,11 +37,8 @@ import { RutinaVistaGeneralComponent } from './components/ep/admin-rutinas/rutin
 import { RutinaVistaDetalleComponent } from './components/ep/admin-rutinas/rutina-vista-detalle/rutina-vista-detalle.component';
 import { RutinaEjercicioComponent } from './components/ep/admin-rutinas/rutina-ejercicio/rutina-ejercicio.component';
 import { RutinaNuevaComponent } from './components/ep/admin-rutinas/rutina-nueva/rutina-nueva.component';
-// import { RutinaDiaSemanaRutinaNuevaComponent } from './components/ep/admin-rutinas/_____rutina-dia-semana-rutina-nueva/rutina-dia-semana-rutina-nueva.component';
-// import { RutinaEjercicioNuevoComponent } from './components/ep/admin-rutinas/_____rutina-ejercicio-nuevo/rutina-ejercicio-nuevo.component';
 import { DietaNuevaComponent } from './components/ep/admin-dietas/dieta-nueva/dieta-nueva.component';
 import { DietaVistaGeneralComponent } from './components/ep/admin-dietas/dieta-vista-general/dieta-vista-general.component';
-// import { DietaDiaSemanaNuevaComponent } from './components/ep/admin-dietas/dieta-dia-semana-nueva/dieta-dia-semana-nueva.component';
 import { DietaVistaDetalleComponent } from './components/ep/admin-dietas/dieta-vista-detalle/dieta-vista-detalle.component';
 import { DietaComidaDetalleComponent } from './components/ep/admin-dietas/dieta-comida-detalle/dieta-comida-detalle.component';
 
@@ -55,6 +52,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { UserNotaDiarioComponent } from './components/user/user-nota-diario/user-nota-diario.component';
 import { UserNotaDiarioNuevaComponent } from './components/user/user-nota-diario-nueva/user-nota-diario-nueva.component';
+import { DietaComidaEditComponent } from './components/ep/admin-dietas/dieta-comida-edit/dieta-comida-edit.component';
 
 
 @NgModule({
@@ -82,11 +80,8 @@ import { UserNotaDiarioNuevaComponent } from './components/user/user-nota-diario
     RutinaVistaDetalleComponent,
     RutinaEjercicioComponent,
     RutinaNuevaComponent,
-    // RutinaDiaSemanaRutinaNuevaComponent,
-    // RutinaEjercicioNuevoComponent,
     DietaNuevaComponent,
     DietaVistaGeneralComponent,
-    // DietaDiaSemanaNuevaComponent,
     DietaVistaDetalleComponent,
     DietaComidaDetalleComponent,
     UserDietaDetalleComponent,
@@ -95,6 +90,7 @@ import { UserNotaDiarioNuevaComponent } from './components/user/user-nota-diario
     ProfileComponent,
     UserNotaDiarioComponent,
     UserNotaDiarioNuevaComponent,
+    DietaComidaEditComponent,
   ],
   imports: [
     BrowserModule,

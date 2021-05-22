@@ -79,16 +79,6 @@ export class RutinaEjercicioComponent implements OnInit {
         (err) => console.log(err)
       );
   }
-
-  // getInfoEjercicio(idEjercicio){
-  //   this.ejerciciosService.getEjercicioById(idEjercicio).subscribe(
-  //     (res) => {
-  //       this.ejercicio = res;
-  //       console.log(this.ejercicio);
-  //     },
-  //     (err) => console.log(err)
-  //   );
-  // }
   
   editEjercicio(form: NgForm) {
 
@@ -122,7 +112,4 @@ export class RutinaEjercicioComponent implements OnInit {
 
   }
 
-  eliminarEjercicio(ejercicio){
-    console.log(ejercicio);
-  }
 }

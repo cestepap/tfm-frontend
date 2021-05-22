@@ -40,6 +40,8 @@ import { DietaNuevaComponent } from './components/ep/admin-dietas/dieta-nueva/di
 import { DietaVistaGeneralComponent } from './components/ep/admin-dietas/dieta-vista-general/dieta-vista-general.component';
 import { DietaVistaDetalleComponent } from './components/ep/admin-dietas/dieta-vista-detalle/dieta-vista-detalle.component';
 import { DietaComidaDetalleComponent } from './components/ep/admin-dietas/dieta-comida-detalle/dieta-comida-detalle.component';
+import { DietaComidaEditComponent } from './components/ep/admin-dietas/dieta-comida-edit/dieta-comida-edit.component';
+
 
 
 
@@ -90,6 +92,8 @@ const routes: Routes = [
     { path: 'dieta/:dietaId', canActivate: [CanActivateTokenGuard, CanActivateEpRolGuard], component: DietaVistaGeneralComponent },
     { path: 'dieta-detalle/:diaSemanaDietaId', canActivate: [CanActivateTokenGuard, CanActivateEpRolGuard], component: DietaVistaDetalleComponent },
     { path: 'dieta-comida-detalle/:comidaId', canActivate: [CanActivateTokenGuard, CanActivateEpRolGuard], component: DietaComidaDetalleComponent },
+    { path: 'dieta-comida-edit/:detalleComidaId', canActivate: [CanActivateTokenGuard, CanActivateEpRolGuard], component: DietaComidaEditComponent },
+
 
 
     // { path: 'dieta', canActivate: [CanActivateTokenGuard], component: DietaComponent },

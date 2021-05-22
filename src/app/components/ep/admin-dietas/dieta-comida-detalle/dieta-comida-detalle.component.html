@@ -94,7 +94,6 @@
           <mat-card-title>Alimentos</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <form #detallecomidaForm="ngForm">
             <table class="table table-striped" style="table-layout: fixed">
               <thead>
                 <tr>
@@ -136,16 +135,17 @@
                   <td>{{ detalleComida.observaciones }}</td>
 
                   <td style="text-align: right; padding-right: 20px">
-                    <!-- <button
-                      class="btn btn-primary btn-sm"
-                      (click)="updateDetalleComida(detalleComida)"
-
+                    <a href="/dieta-comida-edit/{{ detalleComida._id }}">
+                      <button
+                        class="btn btn-warning btn-sm"
+                      >
+                        <i class="material-icons">edit</i>
+                      </button></a
                     >
-                      <i class="material-icons">save</i>
-                    </button> -->
 
                     <button
                       class="btn btn-danger btn-sm"
+                      style="margin-left: 10px"
                       (click)="deleteDetalleComida(detalleComida)"
                     >
                       <i class="material-icons">delete</i>
@@ -154,7 +154,6 @@
                 </tr>
               </tbody>
             </table>
-          </form>
 
           <button
             class="btn btn-primary btn-sm"
@@ -183,7 +182,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('pescados')"
+                      (click)="filtrarGrupoAlimento('Pescados')"
                     >
                       PESCADOS
                     </button>
@@ -191,7 +190,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('legumbres')"
+                      (click)="filtrarGrupoAlimento('Legumbres')"
                     >
                       LEGOUMBRES
                     </button>
@@ -199,7 +198,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('carnes')"
+                      (click)="filtrarGrupoAlimento('Carnes')"
                     >
                       CARNES
                     </button>
@@ -207,7 +206,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('huevos')"
+                      (click)="filtrarGrupoAlimento('Huevos')"
                     >
                       HUEVOS
                     </button>
@@ -215,7 +214,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('cereales')"
+                      (click)="filtrarGrupoAlimento('Cereales')"
                     >
                       CEREALES
                     </button>
@@ -223,7 +222,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('frutas')"
+                      (click)="filtrarGrupoAlimento('Frutas')"
                     >
                       FRUTAS
                     </button>
@@ -231,7 +230,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('aceite')"
+                      (click)="filtrarGrupoAlimento('Aceite')"
                     >
                       ACEITE
                     </button>
@@ -239,7 +238,7 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('lacteos')"
+                      (click)="filtrarGrupoAlimento('Lácteos')"
                     >
                       LÁCTEOS
                     </button>
@@ -247,9 +246,17 @@
                   <div class="col-md-4 text-center">
                     <button
                       class="btn btn-secondary m-3 btn-alimento"
-                      (click)="filtrarGrupoAlimento('otros')"
+                      (click)="filtrarGrupoAlimento('Frutos Secos')"
                     >
-                      OTROS
+                      Frutos Secos
+                    </button>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <button
+                      class="btn btn-secondary m-3 btn-alimento"
+                      (click)="filtrarGrupoAlimento('Verduras')"
+                    >
+                      Verduras
                     </button>
                   </div>
                 </div>
@@ -288,7 +295,7 @@
 
         <mat-card class="example-card">
           <div class="row justify-content-center">
-            <div class="col-md-8 justify-content-center">
+            <div class="col-md-7 justify-content-center">
               <div
                 style="
                   text-align: center;
@@ -324,7 +331,7 @@
                 rows="2"
               ></textarea>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="form-group">
                 <img
                   style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
