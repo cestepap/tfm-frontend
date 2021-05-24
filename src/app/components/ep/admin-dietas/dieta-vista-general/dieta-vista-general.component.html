@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="row justify-content-center pb-3">
-    <div class="col-md-4 datos-cliente-mobile">
+    <div class="col-lg-3 datos-cliente-tablet">
       <mat-card class="example-card h-100">
         <div class="row justify-content-center">
           <div class="col-12" style="text-align: center">
@@ -28,8 +28,8 @@
       </mat-card>
     </div>
 
-    <div class="col-md-8">
-      <mat-card class="example-card">
+    <div class="col-lg-5 datos-cliente-tablet">
+      <mat-card class="example-card h-100">
         <form #dietaForm="ngForm">
           <div class="row justify-content-center">
             <div class="col-md-9">
@@ -54,7 +54,7 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.1em"
+                style="font-weight: 800; text-align: center; font-size: 1.1em; height:50px"
                 name="descripcion"
                 placeholder="Descripcion"
                 [(ngModel)]="dieta.descripcion"
@@ -78,11 +78,9 @@
         </form>
       </mat-card>
     </div>
-  </div>
 
-  <div class="row justify-content-center pb-3" *ngIf="pieChartDataNotNull">
-    <div class="col-md-6">
-      <mat-card class="example-card">
+    <div class="col-lg-4" *ngIf="pieChartDataNotNull">
+      <mat-card class="example-card h-100">
         <mat-card-content>
           <div style="display: block">
             <canvas
@@ -168,7 +166,7 @@
       <mat-card class="example-card">
         <form #diaSemanaDietaNuevo="ngForm">
           <div class="row justify-content-center">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <!-- <input
                 type="text"
                 class="form-control"
@@ -191,7 +189,7 @@
                 </mat-select>
               </mat-form-field>
             </div>
-            <div class="col-md-7" style="margin-top: 40px">
+            <div class="col-md-6" style="margin-top: 40px">
               <input
                 type="text"
                 class="form-control"
@@ -209,7 +207,6 @@
             <div class="col-md-1">
               <button
                 class="btn btn-primary btn-sm"
-                style="margin-left: 10px"
                 (click)="saveNuevoDiaSemanaDieta(nuevoDiaSemanaDieta)"
               >
                 <i class="material-icons">save</i>

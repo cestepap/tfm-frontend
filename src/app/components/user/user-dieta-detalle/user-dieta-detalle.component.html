@@ -12,7 +12,7 @@
   </div>
 
   <div class="row justify-content-center pb-3">
-    <div class="col-md-4 datos-cliente-mobile">
+    <!-- <div class="col-md-4 datos-cliente-mobile">
         <mat-card class="example-card h-100">
             <div class="row justify-content-center">
               <div class="col-12" style='text-align: center;'>
@@ -27,17 +27,17 @@
               </div>
             </div>
           </mat-card>
-    </div>
+    </div> -->
 
-    <div class="col-md-8">
-      <mat-card class="example-card">
+    <div class="col-md-6 home-accede">
+      <mat-card class="example-card h-100">
         <form #rutinaForm="ngForm">
           <div class="row justify-content-center">
             <div class="col-md-10">
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.2em"
+                style="font-weight: 800; text-align: center; font-size: 1.2em; color: #444"
                 name="titulo"
                 placeholder="Titulo de rutina"
                 disabled
@@ -47,7 +47,7 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.2em"
+                style="font-weight: 800; text-align: center; font-size: 1.2em; color: #444"
                 name="fechaInicio"
                 placeholder="Fecha de inicio"
                 disabled
@@ -57,7 +57,7 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.2em"
+                style="font-weight: 800; text-align: center; font-size: 1.2em; color: #444"
                 name="descripcion"
                 placeholder="Descripcion"
                 disabled
@@ -68,13 +68,8 @@
         </form>
       </mat-card>
     </div>
-  </div>
 
-  <div
-    class="row justify-content-center pb-3"
-    *ngIf="pieChartDataNotNull"
-  >
-    <div class="col-md-6">
+    <div class="col-md-6" *ngIf="pieChartDataNotNull">
       <mat-card class="example-card">
         <mat-card-content>
           <div style="display: block">
@@ -126,23 +121,23 @@
                       class="btn btn-warning btn-sm"
                       style="margin-right: 10px"
                       (click)="mostrarDetalleComidas(diaSemanaDieta._id)"
-
                     >
-                    VER COMIDAS</button>
-                    </a>
+                      VER COMIDAS
+                    </button>
+                  </a>
                 </td>
               </tr>
             </tbody>
           </table>
 
           <button
-          *ngIf="mostrarDetallesComidas"
-          class="btn btn-primary btn-sm"
-          style="float: right"
-          (click)="ocultarDetallesEjercicio()"
-        >
-          OCULTAR DETALLE
-        </button>
+            *ngIf="mostrarDetallesComidas"
+            class="btn btn-primary btn-sm"
+            style="float: right"
+            (click)="ocultarDetallesEjercicio()"
+          >
+            OCULTAR DETALLE
+          </button>
         </mat-card-content>
       </mat-card>
     </div>
@@ -180,5 +175,4 @@
       </mat-card>
     </div>
   </div> -->
-
 </div>

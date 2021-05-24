@@ -67,7 +67,7 @@ export class DietaVistaGeneralComponent implements OnInit {
 
   pieChartDataNotNull = false;
 
-  public pieChartLabels: string[] = ['Proteinas', 'Carbohidratos', 'Grasas'];
+  public pieChartLabels: string[] = ['Proteinas', 'Chs', 'Grasas'];
   public pieChartData: number[] = [];
   public pieChartType: string = 'pie';
 

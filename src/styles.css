@@ -5,15 +5,18 @@
 html,
 body {
   height: 100%;
+  font-family: "Muli" !important;
+  font-size: 1.1em;
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
 }
 
 .mat-card {
   background: #f5f9ff;
   border: 1px solid #ddd;
+  border-radius: 20px!important;
 }
 
 table {
@@ -21,11 +24,19 @@ table {
 }
 
 table tr td {
-  word-break: break-all;
+  word-break: break-word;
 }
-
+.navbar-brand {
+  font-size: 42px !important;
+}
 @media (max-width: 900px) {
   .datos-cliente-mobile {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .datos-cliente-tablet {
     margin-bottom: 20px;
   }
 }

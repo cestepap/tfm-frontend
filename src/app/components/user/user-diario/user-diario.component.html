@@ -82,17 +82,17 @@
           <div style="text-align: center">
             <button
               (click)="onPreviousMonth()"
-              style="padding: 10px; margin: 10px"
+              style="padding: 10px; margin: 10px 50px 10px 0"
               class="btn btn-secondary btn-sm"
             >
               Anterior
             </button>
-            <span>
+            <span  style='border:1px solid #ccc; padding: 5px; background-color: #eee;'>
               {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}
             </span>
             <button
               (click)="onNextMonth()"
-              style="padding: 10px; margin: 10px"
+              style="padding: 10px; margin: 10px 0 10px 50px"
               class="btn btn-secondary btn-sm"
             >
               Siguiente
@@ -126,6 +126,7 @@
           <mat-card-title>Notas del diario</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+          <div class="table-wrapper">
             <table class="table table-striped" style="table-layout: fixed">
               <thead>
                 <tr>
@@ -158,6 +159,7 @@
                 </tr>
               </tbody>
             </table>
+            </div>
         </mat-card-content>
       </mat-card>
     </div>

@@ -41,29 +41,29 @@ export class CalendarCreator {
   public getMonthName(monthIndex: number): string {
     switch (monthIndex) {
       case 0:
-        return "January";      
+        return "Enero";      
       case 1:
-        return "February";
+        return "Febrero";
       case 2:
-        return "March";
+        return "Marzo";
       case 3:
-        return "April";
+        return "Abril";
       case 4:
-        return "May";
+        return "Mayo";
       case 5:
-        return "June";
+        return "Junio";
       case 6:
-        return "July";
+        return "Julio";
       case 7:
-        return "August";
+        return "Agosto";
       case 8:
-        return "September";
+        return "Septiembre";
       case 9:
-        return "October";
+        return "Octubre";
       case 10:
-        return "November";
+        return "Noviembre";
       case 11:
-        return "December";
+        return "Diciembre";
 
       default:
         return "";

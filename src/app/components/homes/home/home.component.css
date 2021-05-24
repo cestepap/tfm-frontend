@@ -1,6 +1,23 @@
-@media (max-width: 900px) {
-.home-accede{
-    margin-bottom: 20px;
+
+.home-signup-desktop{
+  margin-top: 140px;
 }
+
+@media (max-width: 900px) {
+  .home-accede {
+    margin-bottom: 20px;
   }
-  
+
+  .home-signup-desktop{
+    margin-top: 0px;
+  }
+}
+.navbar-brand {
+  font-size: 42px !important;
+}
+
+.vertical-center {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}

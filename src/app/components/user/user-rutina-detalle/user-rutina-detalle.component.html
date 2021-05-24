@@ -12,7 +12,7 @@
   </div>
 
   <div class="row justify-content-center pb-3">
-    <div class="col-md-4 datos-cliente-mobile">
+    <!-- <div class="col-md-4 datos-cliente-mobile">
       <mat-card class="example-card h-100">
         <div class="row justify-content-center">
           <div class="col-12" style="text-align: center">
@@ -27,9 +27,9 @@
           </div>
         </div>
       </mat-card>
-    </div>
+    </div> -->
 
-    <div class="col-md-8">
+    <div class="col-md-12">
       <mat-card class="example-card">
         <form #rutinaForm="ngForm">
           <div class="row justify-content-center">
@@ -37,7 +37,12 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.5em"
+                style="
+                  font-weight: 800;
+                  text-align: center;
+                  font-size: 1.5em;
+                  color: #444;
+                "
                 name="titulo"
                 placeholder="Titulo de rutina"
                 disabled
@@ -47,7 +52,12 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.5em"
+                style="
+                  font-weight: 800;
+                  text-align: center;
+                  font-size: 1.5em;
+                  color: #444;
+                "
                 name="fechaInicio"
                 placeholder="Fecha de inicio"
                 disabled
@@ -57,7 +67,12 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.5em"
+                style="
+                  font-weight: 800;
+                  text-align: center;
+                  font-size: 1.5em;
+                  color: #444;
+                "
                 name="descripcion"
                 placeholder="Descripcion"
                 disabled
@@ -123,7 +138,7 @@
     <div class="col-md-12">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>Detalle</mat-card-title>
+          <mat-card-title>Detalle de los ejercicios:</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <table class="table table-striped">
@@ -138,10 +153,17 @@
                     }}</strong>
                   </div>
 
-                  <div style="display: block; padding: 5px 0">
-                    <span>Series: {{ detalleEjercicio.series }} / </span>
+                  <div style="padding: 5px 0">
                     <span
-                      >Repeticiones: {{ detalleEjercicio.observaciones }}
+                      >Series:
+                      <strong>{{ detalleEjercicio.series }}</strong></span
+                    >
+                  </div>
+
+                  <div style="padding: 5px 0">
+                    <span
+                      >Repeticiones:
+                      <strong>{{ detalleEjercicio.repeticiones }}</strong>
                     </span>
                   </div>
 
@@ -157,6 +179,7 @@
                       margin: 5px 0;
                       max-width: 300px;
                       float: right;
+                      border-radius: 40px;
                     "
                     mat-card-image
                     src="{{ detalleEjercicio.idEjercicio['imagen'] }}"

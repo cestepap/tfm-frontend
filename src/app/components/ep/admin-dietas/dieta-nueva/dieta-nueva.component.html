@@ -11,7 +11,7 @@
       <mat-card class="example-card">
         <form #nuevaDieta="ngForm">
           <div class="row justify-content-center">
-            <div class="col-md-11">
+            <div class="col-md-10">
               <input
                 type="text"
                 class="form-control"
@@ -54,10 +54,11 @@
               </div>
             </div>
 
-            <div class="col-md-1">
+            <div class="col-md-2">
               <button
                 class="btn btn-primary btn-sm"
-                style="margin-left: 10px"
+                style='float: right;'
+
                 (click)="saveNuevaRutina(nuevaDieta.value)"
               >
                 <i class="material-icons">save</i>

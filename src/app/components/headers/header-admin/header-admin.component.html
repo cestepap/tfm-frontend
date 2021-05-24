@@ -1,39 +1,53 @@
-<nav
-  class="navbar navbar-expand-lg navbar-light"
-  style="background-color: rgba(0, 0, 0, 0.05)"
+<div
+  class="row justify-content-center p-3"
+  style="
+    /* background-color: rgba(0, 0, 0, 0.05); */
+    padding-bottom: 40px !important;
+    margin: 0px !important;
+    /* background-image: linear-gradient(
+      140deg,
+      #eadedb 0%,
+      #e9f7e9 50%,
+      #eadedb 75%
+    ); */
+    background-image: linear-gradient(
+      140deg,
+      #333 0%,
+      #b1b1b1 50%,
+      #333 75%
+    );
+  "
 >
-  <ul class="nav nav-pills" style="margin: 0px auto">
+  <div
+    class="col-9 col-lg-4 align-content-center"
+    style="text-align: center; margin: 20px 0; align-self: center"
+  >
     <a href="/home-admin" class="navbar-brand navbar-light">The GYM Tool</a>
-  </ul>
-
-
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <button class="btn btn-secondary btn-sm mr-5">
-        <a href="/admin-users" class="nav-link">ADMINISTRAR USUARIOS</a>
-      </button>
-    </li>
-    <li class="nav-item">
-      <button class="btn btn-secondary btn-sm mr-5">
-        <a href="/admin-alimentos" class="nav-link">ADMINISTRAR ALIMENTOS</a>
-      </button>
-    </li>
-    <li class="nav-item">
-      <button class="btn btn-secondary btn-sm mr-5">
-        <a href="/admin-ejercicios" class="nav-link">ADMINISTRAR EJERCICIOS</a>
-      </button>
-    </li>
-  </ul>
-
-  <ul class="nav nav-pills">
-    <li class="nav-item"><app-user-info></app-user-info></li>
-  </ul>
-
-  <!-- <ul class="nav nav-pills ml-auto">
-    <li class="nav-item" (click)="logout()">
-      <button class="btn btn-warning btn-sm">
-        <a class="nav-link" style="color: black" href="/">LOGOUT</a>
-      </button>
-    </li>
-  </ul> -->
-</nav>
+  </div>
+  <div
+    class="col-9 col-lg-6"
+    style="text-align: center; margin: 20px 0; align-self: center"
+  >
+    <button
+      class="btn btn-secondary btn-sm m-2"
+      style="width: calc(80% / 3); min-width: 200px"
+    >
+      <a href="/admin-users" class="nav-link">ADMINISTRAR USUARIOS</a>
+    </button>
+    <button
+      class="btn btn-secondary btn-sm m-2"
+      style="width: calc(80% / 3); min-width: 200px"
+    >
+      <a href="/admin-alimentos" class="nav-link">ADMINISTRAR ALIMENTOS</a>
+    </button>
+    <button
+      class="btn btn-secondary btn-sm m-2"
+      style="width: calc(80% / 3); min-width: 200px"
+    >
+      <a href="/admin-ejercicios" class="nav-link">ADMINISTRAR EJERCICIOS</a>
+    </button>
+  </div>
+  <div class="col-6 col-lg-2">
+    <app-user-info></app-user-info>
+  </div>
+</div>

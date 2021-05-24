@@ -27,3 +27,17 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+.table-wrapper
+{
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+}
+
+table
+{
+    /* border: 1px solid black; */
+    margin-right: 20px;
+}
