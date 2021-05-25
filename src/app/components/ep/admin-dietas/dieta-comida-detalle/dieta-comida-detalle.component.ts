@@ -200,7 +200,7 @@ export class DietaComidaDetalleComponent implements OnInit {
   }
 
   deleteDetalleComida(detalleComida) {
-    if (confirm('Are you sure to you want to delete it?')) {
+    if (confirm('Estás seguro que quieres eliminarlo?')) {
       this.detalleComidaService
         .deleteDetalleComida(detalleComida._id)
         .subscribe(

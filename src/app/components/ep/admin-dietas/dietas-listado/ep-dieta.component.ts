@@ -44,7 +44,7 @@ export class EpDietaComponent implements OnInit {
     // editRutina() {}
   
     deleteRutina(idDieta) {
-      if (confirm('Are you sure to you want to delete it?')) {
+      if (confirm('Estás seguro que quieres eliminarlo?')) {
         this.dietaService.deleteDieta(idDieta).subscribe(
           (res) => {
             this.getDietasByIdEP();

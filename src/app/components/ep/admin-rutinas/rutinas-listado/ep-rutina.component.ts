@@ -55,7 +55,7 @@ export class EpRutinaComponent implements OnInit {
   editRutina() {}
 
   deleteRutina(idRutina) {
-    if (confirm('Are you sure to you want to delete it?')) {
+    if (confirm('Estás seguro que quieres eliminarlo?')) {
       this.rutinaService.deleteRutina(idRutina).subscribe(
         (res) => {
           this.getRutinasByIdEP();

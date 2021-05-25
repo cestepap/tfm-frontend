@@ -182,7 +182,7 @@ export class DietaVistaDetalleComponent implements OnInit {
   eliminarComida(_id) {
     console.log(_id);
 
-    if (confirm('Are you sure to you want to delete it?')) {
+    if (confirm('Estás seguro que quieres eliminarlo?')) {
       this.comidaService.deleteComida(_id).subscribe(
         (res) => {
           this.getComidas();

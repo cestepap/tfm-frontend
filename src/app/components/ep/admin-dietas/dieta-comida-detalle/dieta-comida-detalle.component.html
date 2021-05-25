@@ -103,7 +103,7 @@
                   <th style="max-width: 30px" class="mobile">CH</th>
                   <th style="max-width: 30px" class="mobile">G</th>
                   <th style="max-width: 30px" class="mobile">Kcal</th>
-                  <th style="max-width: 30px">Observaciones</th>
+                  <th style="max-width: 30px">Obser.</th>
                   <th
                     style="
                       text-align: right;
@@ -175,7 +175,7 @@
       <form #detalleComidaNueva="ngForm">
         <mat-card class="example-card mb-3">
           <div class="row justify-content-center">
-            <div class="col-md-8" style="border-right: 1px solid #ccc">
+            <div class="col-md-7" style="border-right: 1px solid #ccc">
               <div><strong>Grupos de alimentos</strong></div>
               <div class="row justify-content-center">
                 <div class="row justify-content-center">
@@ -263,7 +263,7 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-5">
               <div class="form-group" style="text-align: center">
                 <div>
                   <span><strong>Listado:</strong></span>
@@ -299,7 +299,7 @@
               <div
                 style="
                   text-align: center;
-                  margin: 30px 0;
+                  margin: 20px 0;
                   font-size: 1.1em;
                   border-bottom: 1px solid #ccc;
                 "
@@ -328,11 +328,20 @@
                 name="observaciones"
                 placeholder="Observaciones"
                 [(ngModel)]="nuevoDetalleComida.observaciones"
-                rows="2"
+                rows="1"
               ></textarea>
+              <div>
+                <button
+                  class="btn btn-primary btn-sm"
+                  style="float: right; margin-top: 10px;"
+                  (click)="guardarNuevoDetalleComida(detalleComidaNueva.value)"
+                >
+                  <i class="material-icons">save</i>
+                </button>
+              </div>
             </div>
-            <div class="col-md-4">
-              <div class="form-group">
+            <div class="col-6 col-md-4">
+              <div class="form-group" style='margin-bottom:0px'>
                 <img
                   style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
                   mat-card-image
@@ -340,15 +349,7 @@
                   alt=""
                 />
               </div>
-              <div>
-                <button
-                  class="btn btn-primary btn-sm"
-                  style="float: right"
-                  (click)="guardarNuevoDetalleComida(detalleComidaNueva.value)"
-                >
-                  <i class="material-icons">save</i>
-                </button>
-              </div>
+
             </div>
           </div>
           <div class="form-group" style="margin: 10px 0">

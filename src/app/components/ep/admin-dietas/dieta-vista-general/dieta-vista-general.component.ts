@@ -163,7 +163,7 @@ export class DietaVistaGeneralComponent implements OnInit {
   deleteDiaSemana(_id) {
     console.log(_id);
 
-    if (confirm('Are you sure to you want to delete it?')) {
+    if (confirm('Estás seguro que quieres eliminarlo?')) {
       this.diaSemanaDietaService.deleteDiaSemanaDieta(_id).subscribe(
         (res) => {
           this.getDiasSemanaDietaByDietaId();
