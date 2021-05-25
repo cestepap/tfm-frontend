@@ -15,7 +15,12 @@
           <!-- <mat-card-subtitle>dietas</mat-card-subtitle> -->
         </mat-card-header>
         <mat-card-content>
-          <table class="table table-striped">
+          <span
+            *ngIf="!tieneAlgunaRutina"
+            style="font-weight: 800; color: #2196f3; margin: 15px;"
+            >Aún no tienes ninguna rutina preparada por tu entrenador personal.</span
+          >
+          <table class="table table-striped" *ngIf="tieneAlgunaRutina">
             <thead>
               <tr>
                 <th>Fecha Alta</th>

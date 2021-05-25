@@ -12,6 +12,10 @@ html, body {
     padding-bottom:100px; /* this needs to be bigger than footer height*/
     background: seashell;
   }
+
+  #wrap{
+    background: seashell;
+  }
   
   .footer {
     position: relative;

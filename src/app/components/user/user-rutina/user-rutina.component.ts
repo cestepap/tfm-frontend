@@ -19,6 +19,8 @@ export class UserRutinaComponent implements OnInit {
 
   rutinas: Rutina[];
 
+  tieneAlgunaRutina: boolean = false;
+
   public user: any = this.storeService.getItem('user');
 
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class UserRutinaComponent implements OnInit {
       (res) => {
         this.rutinas = res;
         console.log(this.rutinas);
+
+        if (this.rutinas.length === 0) {
+          this.tieneAlgunaRutina = false;
+        }
+        else this.tieneAlgunaRutina = true; 
       },
       (err) => console.log(err)
     );

@@ -10,7 +10,11 @@
   <div class="row justify-content-center pb-3" *ngIf="mostrarFormDiario">
     <div class="col-md-12">
       <mat-card class="example-card">
-        <form #nuevoDiario="ngForm">
+        <span style="font-weight: 800; color: #2196f3; margin-bottom: 20px;"
+          >Aún no tienes tu diario creado. Dale un nombre!</span
+        >
+
+        <form #nuevoDiario="ngForm" style='padding-top: 20px;'>
           <div class="row justify-content-center">
             <div class="col-md-11">
               <input
@@ -20,14 +24,11 @@
                 placeholder="Titulo del diario"
                 [ngModel]="newDiario.descripcion"
               />
-
-             
             </div>
 
             <div class="col-md-1">
               <button
                 class="btn btn-primary btn-sm"
-                style="margin-left: 10px"
                 (click)="saveNewDiario(nuevoDiario.value)"
               >
                 <i class="material-icons">save</i>
@@ -42,13 +43,13 @@
   <mat-card class="example-card" *ngIf="mostrarDiario">
     <mat-card class="example-card mb-3">
       <form #miDiario="ngForm">
-        <div class="row justify-content-center">
-          <div class="col-10">
+        <div class="row justify-content-center" style="align-items: center">
+          <div class="col-9">
             <div style="font-size: 1.1em">
               <input
                 type="text"
                 class="form-control"
-                style="font-size: 1.1em; text-align: center; font-weight: 800;"
+                style="font-size: 1.1em; text-align: center; font-weight: 800"
                 name="descripcion"
                 placeholder="Titulo del diario"
                 [ngModel]="diario[0].descripcion"
@@ -65,11 +66,19 @@
 
           <div class="col-2">
             <button
-              class="btn btn-primary btn-sm"
-              style='float:right;'
+              style="margin-left: 10px"
+              class="btn btn-warning btn-sm"
               (click)="updateDiario(miDiario.value)"
             >
-              <i class="material-icons">save</i>
+              <i class="material-icons">edit</i>
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm"
+              style="margin-left: 10px"
+              (click)="deleteDiario(diario[0])"
+            >
+              <i class="material-icons">delete</i>
             </button>
           </div>
         </div>
@@ -87,7 +96,13 @@
             >
               Anterior
             </button>
-            <span  style='border:1px solid #ccc; padding: 5px; background-color: #eee;'>
+            <span
+              style="
+                border: 1px solid #ccc;
+                padding: 5px;
+                background-color: #eee;
+              "
+            >
               {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}
             </span>
             <button
@@ -119,7 +134,7 @@
     </div>
   </mat-card>
 
-  <div class="row justify-content-center pt-3">
+  <div class="row justify-content-center pt-3" *ngIf="mostrarDiario">
     <div class="col-md-12">
       <mat-card class="example-card">
         <mat-card-header>
@@ -127,7 +142,11 @@
         </mat-card-header>
         <mat-card-content>
           <div class="table-wrapper">
-            <table class="table table-striped" style="table-layout: fixed">
+            <table
+              class="table table-striped"
+              style="table-layout: fixed"
+              *ngIf="tieneAlgunaNotaDiario"
+            >
               <thead>
                 <tr>
                   <th>Fecha</th>
@@ -140,7 +159,7 @@
               <tbody>
                 <tr *ngFor="let nota of notasDiario">
                   <td>{{ nota.fecha }}</td>
-                  <td>{{ nota.observaciones.substring(0,50) }}...</td>
+                  <td>{{ nota.observaciones.substring(0, 50) }}...</td>
                   <td style="text-align: right; padding-right: 20px">
                     <a href="user-nota-diario/{{ nota._id }}">
                       <button class="btn btn-warning btn-sm">
@@ -159,7 +178,7 @@
                 </tr>
               </tbody>
             </table>
-            </div>
+          </div>
         </mat-card-content>
       </mat-card>
     </div>

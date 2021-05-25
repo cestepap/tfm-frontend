@@ -88,7 +88,10 @@
                 </span>
               </div>
 
-              <div class="form-group home-signup-desktop" style="text-align: center">
+              <div
+                class="form-group home-signup-desktop"
+                style="text-align: center"
+              >
                 <p *ngIf="message" style="color: red">{{ message }}</p>
                 <button
                   class="btn btn-primary"
@@ -160,6 +163,10 @@
                   <span *ngIf="signupForm.get('email2').errors?.required"
                     >El email es obligatorio</span
                   >
+                </span>
+
+                <span style="color: red" *ngIf="email2.errors?.pattern">
+                  Formato de email no válido
                 </span>
               </div>
 

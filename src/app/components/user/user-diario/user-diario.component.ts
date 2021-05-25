@@ -39,6 +39,8 @@ export class UserDiarioComponent implements OnInit {
 
   public notasDiario: NotaDiario[];
 
+  public tieneAlgunaNotaDiario: boolean = false;
+
   errorForm = '';
   msgForm = '';
   errorFormDiario = '';
@@ -91,6 +93,17 @@ export class UserDiarioComponent implements OnInit {
     );
   }
 
+  deleteDiario(diario) {
+    if (confirm('Estas seguro que quieres eliminarlo')) {
+      this.diarioService.deleteDiario(diario._id).subscribe(
+        (res) => {
+          this.router.navigate(['/']);
+        },
+        (err) => console.log(err)
+      );
+    }
+  }
+
   getNotasDiario(diarioId) {
     // this.miDiario = this.storeService.getItem('diario');
 
@@ -98,6 +111,11 @@ export class UserDiarioComponent implements OnInit {
       (res) => {
         this.notasDiario = res;
         console.log(this.notasDiario);
+
+        if (this.notasDiario.length === 0) {
+          this.tieneAlgunaNotaDiario = false;
+        }
+        else this.tieneAlgunaNotaDiario = true; 
       },
       (err) => console.log(err)
     );
@@ -151,14 +169,14 @@ export class UserDiarioComponent implements OnInit {
           console.log(res);
           this.msgForm = 'Diario creado.';
           this.errorForm = '';
-          this.getDiario();        },
+          this.getDiario();
+        },
         (err) => console.log(err)
       );
     } else {
       this.errorForm = 'Error en los campos.';
       this.msgForm = '';
     }
-
   }
 
   deleteNota(nota) {
