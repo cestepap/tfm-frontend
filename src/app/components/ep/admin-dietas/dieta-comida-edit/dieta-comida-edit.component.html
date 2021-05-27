@@ -4,16 +4,16 @@
   <div class="row pb-3">
     <div class="col">
       <strong>
-        <a href="/home-ep">Home EP</a> >
-        <a href="/dietas-listado">Admin Dietas</a> >
-        <a href="/dieta/{{ dieta._id }}">Dieta Vista General</a> >
+        <a href="/home-ep">Home</a> >
+        <a href="/dietas-listado">Administrar Dietas</a> >
+        <a href="/dieta/{{ dieta._id }}">Vista General</a> >
         <a href="/dieta-detalle/{{ diaSemanaDieta._id }}"
-          >Dieta Vista Detalle</a
+          >Vista Detalle</a
         > >
         <a href="/dieta-comida-detalle/{{ comida._id }}"
         >Comida</a
       >
-        > Detalle Alimento</strong
+        > Alimento</strong
       >
     </div>
   </div>
@@ -22,7 +22,7 @@
     <div class="col-md-12">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>Editar Detalle de Alimento:</mat-card-title>
+          <mat-card-title>Detalles del alimento:</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <form #detalleComidaForm="ngForm">
@@ -53,24 +53,24 @@
 
 
                   <td
-                    style="width: 20%; text-align: center; font-size: 1.2em"
+                    style="width: 20%; text-align: center; font-size: 1.1em"
                   >
                     <input
                       type="text"
                       class="form-control"
-                      style="text-align: center; font-size: 1.2em"
+                      style="text-align: center; font-size: 1.1em"
                       name="cantidad"
                       [(ngModel)]="detalleComida.cantidad"
                     /> gr/ml
                   </td>
 
                   <td
-                  style="max-width: 40%; text-align: center; font-size: 1.2em"
+                  style="max-width: 40%; text-align: center; font-size: 1.1em"
                 >
                   <input
                     type="text"
                     class="form-control"
-                    style="text-align: center; font-size: 1.2em"
+                    style="text-align: center; font-size: 1.1em"
                     name="observaciones"
                     [(ngModel)]="detalleComida.observaciones"
                   />

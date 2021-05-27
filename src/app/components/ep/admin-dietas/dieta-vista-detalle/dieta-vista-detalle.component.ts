@@ -159,25 +159,25 @@ export class DietaVistaDetalleComponent implements OnInit {
         (res) => {
           this.comidas = res;
           console.log(this.comidas);
-          // this.getDetallesComida();
         },
         (err) => console.log(err)
       );
   }
 
-  // getDetallesComida(){
-  //   this.comidas.forEach(comida => {
-  //     this.detalleComidaService
-  //     .getDetallesComidaByComidaId(comida._id)
-  //     .subscribe(
-  //       (res) => {
-  //         this.detallesComida = res;
-  //         console.log(this.detallesComida);
-  //       },
-  //       (err) => console.log(err)
-  //     );
-  //   });
-  // }
+  resetNuevaComida(){
+    this.errorFormComida = '';
+    this.msgFormComida = '';
+    this.nuevaComida = {
+      idDiaSemanaDieta: '',
+      nombre: '',
+      hora: '',
+      proteinasComida: 0,
+      chsComida: 0,
+      grasasComida: 0,
+      kcalComida: 0,
+      detalleComida: [],
+    }
+  }
 
   eliminarComida(_id) {
     console.log(_id);
@@ -217,6 +217,7 @@ export class DietaVistaDetalleComponent implements OnInit {
           this.errorFormComida = 'Dia de la dieta creado.';
           this.msgFormComida = '';
           this.getComidas();
+          this.resetNuevaComida();
           this.mostrarFormNuevaComida = false;
         },
         (err) => console.log(err)

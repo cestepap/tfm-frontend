@@ -15,7 +15,8 @@ body {
 
 .mat-card {
   background: #f5f9ff;
-  border: 1px solid #ddd;
+  background: #DBFDFD;
+  border: 2px solid #ddd;
   border-radius: 20px !important;
 }
 

@@ -238,7 +238,6 @@ export class DietaComidaDetalleComponent implements OnInit {
 
     if (
       nuevoDetalleComida.cantidad !== 0 &&
-      nuevoDetalleComida.observaciones !== '' &&
       nuevoDetalleComida.idAlimento !== ''
     ) {
       console.log(nuevoDetalleComida);

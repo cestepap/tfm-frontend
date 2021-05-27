@@ -4,12 +4,10 @@
   <div class="row pb-3">
     <div class="col">
       <strong>
-        <a href="/home-ep">Home EP</a> >
-        <a href="/dietas-listado">Admin Dietas</a> >
-        <a href="/dieta/{{ dieta._id }}">Dieta Vista General</a> >
-        <a href="/dieta-detalle/{{ diaSemanaDieta._id }}"
-          >Dieta Vista Detalle</a
-        >
+        <a href="/home-ep">Home </a> >
+        <a href="/dietas-listado">Administrar Dietas</a> >
+        <a href="/dieta/{{ dieta._id }}">Vista General</a> >
+        <a href="/dieta-detalle/{{ diaSemanaDieta._id }}">Vista Detalle</a>
         > Comida</strong
       >
     </div>
@@ -94,66 +92,64 @@
           <mat-card-title>Alimentos</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <table class="table table-striped" style="table-layout: fixed">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Cantidad</th>
-                  <th style="max-width: 30px" class="mobile">P</th>
-                  <th style="max-width: 30px" class="mobile">CH</th>
-                  <th style="max-width: 30px" class="mobile">G</th>
-                  <th style="max-width: 30px" class="mobile">Kcal</th>
-                  <th style="max-width: 30px">Obser.</th>
-                  <th
-                    style="
-                      text-align: right;
-                      padding-right: 20px;
-                      font-size: 1.1em;
-                      min-width: 140px;
-                    "
+          <table class="table table-striped" style="table-layout: fixed">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th style="max-width: 30px" class="mobile">P</th>
+                <th style="max-width: 30px" class="mobile">CH</th>
+                <th style="max-width: 30px" class="mobile">G</th>
+                <th style="max-width: 30px" class="mobile">Kcal</th>
+                <th style="max-width: 30px">Observaciones</th>
+                <th
+                  style="
+                    text-align: right;
+                    padding-right: 20px;
+                    font-size: 1.1em;
+                    min-width: 140px;
+                  "
+                >
+                  Acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let detalleComida of detallesComida">
+                <td>{{ detalleComida.idAlimento["nombre"] }}</td>
+                <td>{{ detalleComida.cantidad }}</td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ detalleComida.proteinasDetalleComida }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ detalleComida.chsDetalleComida }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ detalleComida.grasasDetalleComida }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ detalleComida.kcalDetalleComida }}
+                </td>
+                <td>{{ detalleComida.observaciones }}</td>
+
+                <td style="text-align: right; padding-right: 20px">
+                  <a href="/dieta-comida-edit/{{ detalleComida._id }}">
+                    <button class="btn btn-warning btn-sm">
+                      <i class="material-icons">edit</i>
+                    </button></a
                   >
-                    Acciones
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let detalleComida of detallesComida">
-                  <td>{{ detalleComida.idAlimento["nombre"] }}</td>
-                  <td>{{ detalleComida.cantidad }}</td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ detalleComida.proteinasDetalleComida }}
-                  </td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ detalleComida.chsDetalleComida }}
-                  </td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ detalleComida.grasasDetalleComida }}
-                  </td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ detalleComida.kcalDetalleComida }}
-                  </td>
-                  <td>{{ detalleComida.observaciones }}</td>
 
-                  <td style="text-align: right; padding-right: 20px">
-                    <a href="/dieta-comida-edit/{{ detalleComida._id }}">
-                      <button
-                        class="btn btn-warning btn-sm"
-                      >
-                        <i class="material-icons">edit</i>
-                      </button></a
-                    >
-
-                    <button
-                      class="btn btn-danger btn-sm"
-                      style="margin-left: 10px;"
-                      (click)="deleteDetalleComida(detalleComida)"
-                    >
-                      <i class="material-icons">delete</i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
+                    (click)="deleteDetalleComida(detalleComida)"
+                  >
+                    <i class="material-icons">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
           <button
             class="btn btn-primary btn-sm"
@@ -265,9 +261,9 @@
 
             <div class="col-md-5">
               <div class="form-group" style="text-align: center">
-                <div>
+                <!-- <div>
                   <span><strong>Listado:</strong></span>
-                </div>
+                </div> -->
                 <mat-form-field
                   appearance="outline"
                   style="padding-top: 20px; max-width: 300px; width: 100%"
@@ -295,13 +291,14 @@
 
         <mat-card class="example-card">
           <div class="row justify-content-center">
-            <div class="col-md-7 justify-content-center">
+            <div class="col-12 col-md-7 justify-content-center" style='margin-bottom: 20px;'>
               <div
                 style="
                   text-align: center;
                   margin: 20px 0;
                   font-size: 1.1em;
                   border-bottom: 1px solid #ccc;
+                  padding-bottom: 10px;
                 "
               >
                 {{ nAlimento }}
@@ -330,18 +327,9 @@
                 [(ngModel)]="nuevoDetalleComida.observaciones"
                 rows="1"
               ></textarea>
-              <div>
-                <button
-                  class="btn btn-primary btn-sm"
-                  style="float: right; margin-top: 10px;"
-                  (click)="guardarNuevoDetalleComida(detalleComidaNueva.value)"
-                >
-                  <i class="material-icons">save</i>
-                </button>
-              </div>
             </div>
-            <div class="col-6 col-md-4">
-              <div class="form-group" style='margin-bottom:0px'>
+            <div class="col-9 col-md-4">
+              <div class="form-group" style="margin-bottom: 0px">
                 <img
                   style="width: 100%; border: 5px solid #ccc; margin: 5px 0"
                   mat-card-image
@@ -349,7 +337,18 @@
                   alt=""
                 />
               </div>
+            </div>
 
+            <div class="col-3 col-md-1">
+              <div>
+                <button
+                  class="btn btn-primary btn-sm"
+                  style="float: right;"
+                  (click)="guardarNuevoDetalleComida(detalleComidaNueva.value)"
+                >
+                  <i class="material-icons">save</i>
+                </button>
+              </div>
             </div>
           </div>
           <div class="form-group" style="margin: 10px 0">

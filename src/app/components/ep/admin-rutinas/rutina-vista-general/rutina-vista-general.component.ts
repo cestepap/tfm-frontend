@@ -87,6 +87,17 @@ export class RutinaVistaGeneralComponent implements OnInit {
     );
   }
 
+  resetNuevoDiaSemana(){
+    this.msgFormDiaSemana = '';
+    this.errorFormDiaSemana = '';
+    this.nuevoDiaSemanaRutina = {
+      idRutina: '',
+      nombre: '',
+      descripcion: '',
+      detalleEjercicios: [],
+    }
+  }
+
   getDiasSemanaRutinaByRutinaId() {
     this.diasSemanaRutinaService
       .getDiasSemanaRutinaByRutinaId(this.rutinaId)
@@ -174,6 +185,7 @@ export class RutinaVistaGeneralComponent implements OnInit {
             this.msgFormDiaSemana = 'Dia de la rutina creado.';
             this.errorFormDiaSemana = '';
             this.getDiasSemanaRutinaByRutinaId();
+            this.resetNuevoDiaSemana();
             this.mostrarFormNuevoDiaSemana = false;
 
           },

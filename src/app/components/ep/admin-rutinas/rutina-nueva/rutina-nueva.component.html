@@ -3,7 +3,9 @@
 <div class="container mt-5 justify-content-center">
   <div class="row pb-3">
     <div class="col">
-      <strong><a href="/ep-rutina">Admin Rutinas</a> > Rutina nueva</strong>
+      <strong>
+        <a href="/home-ep">Home</a> >
+        <a href="/rutinas-listado">Administrar Rutinas</a> > Rutina nueva</strong>
     </div>
   </div>
   <div class="row justify-content-center pb-3">
@@ -11,7 +13,7 @@
       <mat-card class="example-card">
         <form #nuevaRutina="ngForm">
           <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-11">
               <input
                 type="text"
                 class="form-control"
@@ -21,7 +23,7 @@
               />
 
               <input
-                type="text"
+                type="date"
                 class="form-control"
                 name="fechaInicio"
                 placeholder="Fecha de inicio"
@@ -38,7 +40,7 @@
 
               <div class="form-group" style="margin: 20px 0; float: right">
                 <label style="display: inline-block; margin-right: 5px">
-                  Selecciona al Usuario - Cliente
+                  Cliente de la nueva dieta:
                 </label>
                 <mat-form-field appearance="fill" style="display: inline-block">
                   <mat-select [(ngModel)]="idUsuario" name="idUsuario">
@@ -54,7 +56,7 @@
               </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-1">
               <button
                 class="btn btn-primary btn-sm"
                 style='float: right;'

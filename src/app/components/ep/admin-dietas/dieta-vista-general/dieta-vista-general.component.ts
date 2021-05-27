@@ -108,10 +108,22 @@ export class DietaVistaGeneralComponent implements OnInit {
         this.storeService.addItem('dieta-infoCliente', this.dieta.idCliente);
         this.infoCliente = this.dieta.idCliente;
         console.log(this.infoCliente);
+
         this.getDiasSemanaDietaByDietaId();
       },
       (err) => console.log(err)
     );
+  }
+
+  resetNuevoDiaSemana(){
+    this.msgFormDiaSemana = '';
+    this.errorFormDiaSemana = '';
+    this.nuevoDiaSemanaDieta = {
+      idDieta: '',
+      nombre: '',
+      descripcion: '',
+      comida: [],
+    }
   }
 
   getDiasSemanaDietaByDietaId() {
@@ -204,6 +216,7 @@ export class DietaVistaGeneralComponent implements OnInit {
             this.msgFormDiaSemana = 'Dia de la dieta creado.';
             this.errorFormDiaSemana = '';
             this.getDiasSemanaDietaByDietaId();
+            this.resetNuevoDiaSemana();
             this.mostrarFormNuevoDiaSemana = false;
           },
           (err) => console.log(err)

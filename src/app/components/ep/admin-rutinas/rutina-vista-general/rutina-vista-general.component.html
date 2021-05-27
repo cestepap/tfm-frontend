@@ -4,8 +4,8 @@
   <div class="row pb-3">
     <div class="col">
       <strong>
-        <a href="/home-ep">Home EP</a> >
-        <a href="/rutinas-listado">Admin Rutinas</a> > Rutina Vista
+        <a href="/home-ep">Home</a> >
+        <a href="/rutinas-listado">Administrar Rutinas</a> > Vista
         General</strong
       >
     </div>
@@ -33,20 +33,20 @@
       <mat-card class="example-card">
         <form #rutinaForm="ngForm">
           <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-8">
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.1em"
+                style="font-weight: 800; text-align: left; font-size: 1.1em; "
                 name="titulo"
                 placeholder="Titulo de rutina"
                 [(ngModel)]="rutina.titulo"
               />
 
               <input
-                type="text"
+                type="date"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.1em"
+                style="font-weight: 800; text-align: left; font-size: 1.1em;"
                 name="fechaInicio"
                 placeholder="Fecha de inicio"
                 [(ngModel)]="rutina.fechaInicio"
@@ -55,7 +55,7 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: center; font-size: 1.1em"
+                style="font-weight: 800; text-align: left; font-size: 1.1em"
                 name="descripcion"
                 placeholder="Descripcion"
                 [(ngModel)]="rutina.descripcion"
@@ -67,9 +67,10 @@
               </div>
             </div>
 
-            <div class="col-md-1">
+            <div class="col-md-2">
               <button
                 class="btn btn-warning btn-sm"
+                style='float: right;'
                 (click)="actualizarRutina(rutina)"
               >
                 <i class="material-icons">save</i>
