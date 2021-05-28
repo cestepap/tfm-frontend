@@ -15,9 +15,14 @@ body {
 
 .mat-card {
   background: #f5f9ff;
-  background: #DBFDFD;
+  background: #d3ebe9;
   border: 2px solid #ddd;
   border-radius: 20px !important;
+}
+
+input{
+  border-radius: 10px!important;
+  padding-left: 10px!important;
 }
 
 table {

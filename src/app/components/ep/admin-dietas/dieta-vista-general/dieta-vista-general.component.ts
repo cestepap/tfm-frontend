@@ -107,6 +107,7 @@ export class DietaVistaGeneralComponent implements OnInit {
         this.storeService.addItem('dieta', this.dieta);
         this.storeService.addItem('dieta-infoCliente', this.dieta.idCliente);
         this.infoCliente = this.dieta.idCliente;
+
         console.log(this.infoCliente);
 
         this.getDiasSemanaDietaByDietaId();
