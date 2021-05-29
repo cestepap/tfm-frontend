@@ -12,7 +12,7 @@ import { Token } from '../models/token';
 export class AuthService {
   // URL_API = 'http://localhost:4000/api/auth';
 
-  URL_API = 'http://161.22.43.33/:4000/api/auth';
+  URL_API = 'http://161.22.43.33:4000/api/auth';
 
   
   constructor(private http: HttpClient) {}
