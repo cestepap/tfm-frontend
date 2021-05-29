@@ -8,7 +8,10 @@ import { StoreService } from '../services/store.service';
   providedIn: 'root',
 })
 export class DietaService {
-  URL_API = 'http://localhost:4000/api/dietas';
+  // URL_API = 'http://localhost:4000/api/dietas';
+
+  URL_API = 'http://161.22.43.33:4000/api/dietas';
+
 
   public token: any = this.storeService.getItem('token');  
 
