@@ -10,19 +10,19 @@
   <div class="row justify-content-center pb-3" *ngIf="mostrarFormDiario">
     <div class="col-md-12">
       <mat-card class="example-card">
-        <span style="font-weight: 800; color: #2196f3; margin-bottom: 20px;"
+        <span style="font-weight: 800; color: #2196f3; margin-bottom: 20px"
           >Aún no tienes tu diario creado. Dale un nombre!</span
         >
 
-        <form #nuevoDiario="ngForm" style='padding-top: 20px;'>
+        <form #nuevoDiario="ngForm" style="padding-top: 20px">
           <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-9">
               <textarea
                 type="text"
                 class="form-control"
                 name="descripcion"
                 placeholder="Titulo del diario"
-                rows='2'
+                rows="2"
                 [ngModel]="newDiario.descripcion"
               >
               </textarea>
@@ -54,7 +54,7 @@
                 style="font-size: 1.1em; text-align: center; font-weight: 800"
                 name="descripcion"
                 placeholder="Titulo del diario"
-                rows='2'
+                rows="2"
                 [ngModel]="diario[0].descripcion"
               >
               </textarea>
@@ -95,26 +95,28 @@
           <div style="text-align: center">
             <button
               (click)="onPreviousMonth()"
-              style="padding: 10px; margin: 10px 20px 10px 0"
+              style="padding: 10px; margin: 5px 10px 5px 0; font-size: 0.8em"
               class="btn btn-secondary btn-sm"
             >
-              Anterior
+              {{ calendarCreator.getMonthName(monthNumber - 1) }}
             </button>
+
             <span
               style="
                 border: 1px solid #ccc;
-                padding: 5px;
+                padding: 10px;
                 background-color: #eee;
+                font-weight: 800;
               "
             >
               {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}
             </span>
             <button
               (click)="onNextMonth()"
-              style="padding: 10px; margin: 10px 0 10px 20px"
+              style="padding: 10px; margin: 5px 0 5px 10px; font-size: 0.8em"
               class="btn btn-secondary btn-sm"
             >
-              Siguiente
+              {{ calendarCreator.getMonthName(monthNumber + 1) }}
             </button>
           </div>
 

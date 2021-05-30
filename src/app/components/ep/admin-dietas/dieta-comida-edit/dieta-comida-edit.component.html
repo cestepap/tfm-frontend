@@ -21,9 +21,9 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <mat-card class="example-card">
-        <mat-card-header>
+        <!-- <mat-card-header>
           <mat-card-title>Detalles del alimento:</mat-card-title>
-        </mat-card-header>
+        </mat-card-header> -->
         <mat-card-content>
           <form #detalleComidaForm="ngForm">
             <table class="table table-striped">
@@ -31,7 +31,7 @@
                 <tr>
                   <th style="text-align: center; font-size: 1em">Alimento</th>
                   <th style="text-align: center; font-size: 1em">Cantidad</th>
-                  <th style="text-align: center; font-size: 1em">Observaciones</th>
+                  <th style="text-align: center; font-size: 1em">Notas</th>
 
                   <th
                     style="
@@ -61,7 +61,8 @@
                       style="text-align: center; font-size: 1.1em"
                       name="cantidad"
                       [(ngModel)]="detalleComida.cantidad"
-                    /> gr/ml
+                    /> 
+                    <!-- gr/ml -->
                   </td>
 
                   <td
