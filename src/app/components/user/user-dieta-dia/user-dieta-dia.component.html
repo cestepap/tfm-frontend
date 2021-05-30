@@ -1,7 +1,7 @@
 <app-header-user></app-header-user>
 
-<div class="container mt-5 justify-content-center">
-  <div class="row pb-3">
+<div class="container mt-3 justify-content-center">
+  <div class="row p-3">
     <div class="col">
       <strong
         ><a href="/home-user">Home User</a> >
@@ -65,7 +65,7 @@
                 [(ngModel)]="dieta.fechaInicio"
               />
 
-              <input
+              <textarea
                 type="text"
                 class="form-control"
                 style="
@@ -77,8 +77,10 @@
                 name="descripcion"
                 placeholder="Descripcion"
                 disabled
+                rows='2'
                 [(ngModel)]="dieta.descripcion"
-              />
+              >
+              </textarea>
             </div>
           </div>
         </form>
@@ -212,7 +214,7 @@
                     <div style="display: block; padding: 5px 0">
                       Observaciones:
                       <span
-                        >P: {{ detalleComida.observaciones }}
+                        >{{ detalleComida.observaciones }}
                       </span>
                     </div>
 
@@ -221,11 +223,11 @@
                     <img
                       style="
                         width: 100%;
-                        border: 5px solid #ccc;
+                        border: 2px solid #ccc;
                         margin: 5px 0;
                         max-width: 300px;
                         float: right;
-                        border-radius: 40px;
+                        border-radius: 20px;
                       "
                       mat-card-image
                       src="{{ detalleComida.idAlimento['imagen'] }}"

@@ -93,7 +93,7 @@ export class DietaComidaDetalleComponent implements OnInit {
 
   toggle = false;
   grupoAlimentoTitle = 'Todos los alimentos';
-  nAlimento = 'Selecciona el alimento';
+  nAlimento = 'Selecciona un alimento de la lista';
   nFotoAlimento = 'assets/img/alimentos/food-icon.png';
 
   ngOnInit(): void {

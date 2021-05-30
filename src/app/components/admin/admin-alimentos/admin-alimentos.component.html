@@ -10,7 +10,6 @@
   <div class="row justify-content-center mb-3">
     <div class="col-md-12">
       <div class="mat-card">
-        <div class="card-body">
           <form #alimentosForm="ngForm" (ngSubmit)="addAlimento(alimentosForm)">
             <div class="row justify-content-center">
               <div class="col-10 col-md-4">
@@ -154,7 +153,6 @@
               </div>
             </div>
           </form>
-        </div>
       </div>
     </div>
   </div>
@@ -162,14 +160,13 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="mat-card">
-        <div class="card-body">
           <div class="table-wrapper">
             <table class="table table-striped" style="table-layout: fixed">
               <thead>
                 <tr>
-                  <th>Nombre</th>
+                  <th>Alimento</th>
+                  <th>Grupo</th>
                   <th>Descripcion</th>
-                  <th>Grupos Alimento</th>
                   <th style="max-width: 30px" class="mobile">P</th>
                   <th style="max-width: 30px" class="mobile">CH</th>
                   <th style="max-width: 30px" class="mobile">G</th>
@@ -189,8 +186,8 @@
               <tbody>
                 <tr *ngFor="let alimento of alimentos">
                   <td>{{ alimento.nombre }}</td>
-                  <td>{{ alimento.descripcion }}</td>
                   <td>{{ alimento.grupoAlimento }}</td>
+                  <td>{{ alimento.descripcion }}</td>
                   <td style="max-width: 30px" class="mobile">
                     {{ alimento.proteinas }}
                   </td>
@@ -223,7 +220,6 @@
               </tbody>
             </table>
           </div>
-        </div>
       </div>
     </div>
   </div>

@@ -72,7 +72,7 @@ export class RutinaVistaDetalleComponent implements OnInit {
 
   toggle = false;
   grupoMuscularTitle = 'Todos los ejercicios';
-  nEjercicio = 'Selecciona un ejercicio del listado';
+  nEjercicio = 'Selecciona un ejercicio de la lista';
   nFotoEjercicio = 'assets/img/ejercicios/ejercicio-icon.jpg';
 
 

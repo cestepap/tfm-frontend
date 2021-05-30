@@ -37,7 +37,7 @@
               <input
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: left; font-size: 1.1em; "
+                style="font-weight: 800; text-align: left; font-size: 1.1em"
                 name="titulo"
                 placeholder="Titulo de rutina"
                 [(ngModel)]="rutina.titulo"
@@ -46,20 +46,22 @@
               <input
                 type="date"
                 class="form-control"
-                style="font-weight: 800; text-align: left; font-size: 1.1em;"
+                style="font-weight: 800; text-align: left; font-size: 1.1em"
                 name="fechaInicio"
                 placeholder="Fecha de inicio"
                 [(ngModel)]="rutina.fechaInicio"
               />
 
-              <input
+              <textarea
                 type="text"
                 class="form-control"
                 style="font-weight: 800; text-align: left; font-size: 1.1em"
                 name="descripcion"
                 placeholder="Descripcion"
+                rows="2"
                 [(ngModel)]="rutina.descripcion"
-              />
+              >
+              </textarea>
 
               <div class="form-group" style="margin: 10px 0">
                 <p style="color: red">{{ errorForm }}</p>
@@ -70,7 +72,7 @@
             <div class="col-md-2">
               <button
                 class="btn btn-warning btn-sm"
-                style='float: right;'
+                style="float: right"
                 (click)="actualizarRutina(rutina)"
               >
                 <i class="material-icons">save</i>
@@ -105,7 +107,7 @@
                   <a href="/rutina-detalle/{{ diaSemanaRutina._id }}">
                     <button
                       class="btn btn-warning btn-sm"
-                      style="margin-right: 10px"
+                      style="margin-left: 10px"
                     >
                       <i class="material-icons">edit</i>
                     </button></a
@@ -113,6 +115,7 @@
 
                   <button
                     class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
                     (click)="deleteDiaSemana(diaSemanaRutina._id)"
                   >
                     <i class="material-icons">delete</i>
@@ -184,6 +187,7 @@
             <div class="col-md-1">
               <button
                 class="btn btn-primary btn-sm"
+                style="float: right"
                 (click)="saveNuevoDiaSemanaRutina(nuevoDiaSemanaRutina)"
               >
                 <i class="material-icons">save</i>

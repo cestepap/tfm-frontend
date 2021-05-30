@@ -1,7 +1,7 @@
 <app-header-user></app-header-user>
 
-<div class="container mt-5 justify-content-center">
-  <div class="row pb-3">
+<div class="container mt-3 justify-content-center">
+  <div class="row p-3">
     <div class="col">
       <strong
         ><a href="/home-user">Home User</a> >
@@ -14,14 +14,15 @@
     <div class="row justify-content-center pb-3">
       <div class="col-md-10">
         <div style="font-size: 1.1em">
-          <input
+          <textarea
             type="text"
             class="form-control"
-            style="font-size: 1.2em; text-align: center; font-weight: 800;"
+            style="font-size: 1.1em; text-align: left; font-weight: 800;"
             name="descripcion"
             placeholder="Titulo del diario"
             [ngModel]="diario[0].descripcion"
-          />
+          >
+          </textarea>
         </div>
       </div>
     </div>
@@ -35,7 +36,7 @@
             <input
               type="text"
               class="form-control"
-              style="font-size: 1.2em;font-weight: 800;"
+              style="font-size: 1.1em; color: #666;"
               name="fecha"
               placeholder="Fecha de la nota de Diario"
               [ngModel]="notaDiario.fecha"
@@ -59,7 +60,7 @@
         <div class="col-md-1">
           <button
             class="btn btn-primary btn-sm"
-            style="margin-left: 10px"
+            style="float:right;"
             (click)="updateNotaDiario(miNota.value)"
           >
             <i class="material-icons">save</i>

@@ -1,7 +1,7 @@
 <app-header-user></app-header-user>
 
-<div class="container mt-5 justify-content-center">
-  <div class="row pb-3">
+<div class="container mt-5ç3 justify-content-center">
+  <div class="row p-3">
     <div class="col">
       <strong><a href="/home-user">Home User</a> > Mi Diario </strong>
     </div>
@@ -16,17 +16,19 @@
 
         <form #nuevoDiario="ngForm" style='padding-top: 20px;'>
           <div class="row justify-content-center">
-            <div class="col-md-11">
-              <input
+            <div class="col-md-10">
+              <textarea
                 type="text"
                 class="form-control"
                 name="descripcion"
                 placeholder="Titulo del diario"
+                rows='2'
                 [ngModel]="newDiario.descripcion"
-              />
+              >
+              </textarea>
             </div>
 
-            <div class="col-md-1">
+            <div class="col-md-2">
               <button
                 class="btn btn-primary btn-sm"
                 (click)="saveNewDiario(nuevoDiario.value)"
@@ -46,14 +48,16 @@
         <div class="row justify-content-center" style="align-items: center">
           <div class="col-9">
             <div style="font-size: 1.1em">
-              <input
+              <textarea
                 type="text"
                 class="form-control"
                 style="font-size: 1.1em; text-align: center; font-weight: 800"
                 name="descripcion"
                 placeholder="Titulo del diario"
+                rows='2'
                 [ngModel]="diario[0].descripcion"
-              />
+              >
+              </textarea>
             </div>
             <div class="form-group" style="margin: 10px 0">
               <p style="color: green">{{ msgForm }}</p>
@@ -91,7 +95,7 @@
           <div style="text-align: center">
             <button
               (click)="onPreviousMonth()"
-              style="padding: 10px; margin: 10px 50px 10px 0"
+              style="padding: 10px; margin: 10px 20px 10px 0"
               class="btn btn-secondary btn-sm"
             >
               Anterior
@@ -107,7 +111,7 @@
             </span>
             <button
               (click)="onNextMonth()"
-              style="padding: 10px; margin: 10px 0 10px 50px"
+              style="padding: 10px; margin: 10px 0 10px 20px"
               class="btn btn-secondary btn-sm"
             >
               Siguiente

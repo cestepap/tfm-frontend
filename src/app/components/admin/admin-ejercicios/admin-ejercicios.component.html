@@ -10,7 +10,6 @@
   <div class="row justify-content-center mb-3">
     <div class="col-md-12">
       <div class="mat-card">
-        <div class="card-body">
           <form
             #ejerciciosForm="ngForm"
             (ngSubmit)="addEjercicio(ejerciciosForm)"
@@ -114,7 +113,6 @@
               </div>
             </div>
           </form>
-        </div>
       </div>
     </div>
   </div>
@@ -122,13 +120,12 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="mat-card">
-        <div class="card-body">
           <div class="table-wrapper">
             <table class="table table-striped" style="table-layout: fixed">
               <thead>
                 <tr>
-                  <th>Nombre</th>
-                  <th>Grupos Musculares</th>
+                  <th>Ejercicio</th>
+                  <th>Grupo</th>
                   <th style="max-width: 200px">Descripcion</th>
                   <th
                     style="
@@ -166,7 +163,6 @@
               </tbody>
             </table>
           </div>
-        </div>
       </div>
     </div>
   </div>

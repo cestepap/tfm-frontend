@@ -1,7 +1,7 @@
 <app-header-ep></app-header-ep>
 
-<div class="container mt-5 justify-content-center">
-  <div class="row pb-3">
+<div class="container mt-3 justify-content-center">
+  <div class="row p-3">
     <div class="col">
       <strong
         ><a href="/home-ep">Home </a> >
@@ -51,14 +51,16 @@
                 [(ngModel)]="dieta.fechaInicio"
               />
 
-              <input
+              <textarea
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: left; font-size: 0.8em; height:50px"
+                style="font-weight: 800; text-align: left; font-size: 0.8em; "
                 name="descripcion"
                 placeholder="Descripcion"
+                rows='2'
                 [(ngModel)]="dieta.descripcion"
-              />
+              >
+            </textarea>
 
               <div class="form-group" style="margin: 10px 0">
                 <p style="color: red">{{ errorForm }}</p>
@@ -69,6 +71,7 @@
             <div class="col-md-1">
               <button
                 class="btn btn-warning btn-sm"
+                style="float: right"
                 (click)="actualizarDieta(dieta)"
               >
                 <i class="material-icons">save</i>
@@ -129,7 +132,7 @@
                   <a href="/dieta-detalle/{{ diaSemanaDieta._id }}">
                     <button
                       class="btn btn-warning btn-sm"
-                      style="margin-right: 10px"
+                      style="margin-left: 10px"
                     >
                       <i class="material-icons">edit</i>
                     </button></a
@@ -137,6 +140,7 @@
 
                   <button
                     class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
                     (click)="deleteDiaSemana(diaSemanaDieta._id)"
                   >
                     <i class="material-icons">delete</i>
@@ -207,6 +211,7 @@
             <div class="col-md-1">
               <button
                 class="btn btn-primary btn-sm"
+                style='float:right'
                 (click)="saveNuevoDiaSemanaDieta(nuevoDiaSemanaDieta)"
               >
                 <i class="material-icons">save</i>

@@ -1,7 +1,7 @@
 <app-header-user></app-header-user>
 
-<div class="container mt-5 justify-content-center">
-  <div class="row pb-3">
+<div class="container mt-3 justify-content-center">
+  <div class="row p-3">
     <div class="col">
       <strong
         ><a href="/home-user">Home User</a> >
@@ -54,7 +54,7 @@
                 [(ngModel)]="dieta.fechaInicio"
               />
 
-              <input
+              <textarea
                 type="text"
                 class="form-control"
                 style="font-weight: 800; text-align: center; font-size: 1.2em; color: #444"
@@ -62,7 +62,9 @@
                 placeholder="Descripcion"
                 disabled
                 [(ngModel)]="dieta.descripcion"
-              />
+                rows='2'
+              >
+              </textarea>
             </div>
           </div>
         </form>
@@ -106,7 +108,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Día de la semana</th>
+                <th>Día</th>
                 <th>Descripcion</th>
                 <th style="text-align: right; padding-right: 20px">Acciones</th>
               </tr>
@@ -119,10 +121,9 @@
                   <a href="/user-dieta-dia/{{ diaSemanaDieta._id }}">
                     <button
                       class="btn btn-warning btn-sm"
-                      style="margin-right: 10px"
                       (click)="mostrarDetalleComidas(diaSemanaDieta._id)"
                     >
-                    <i class="material-icons">edit</i>
+                    Detalle
                     </button>
                   </a>
                 </td>
@@ -142,37 +143,4 @@
       </mat-card>
     </div>
   </div>
-
-  <!-- <div
-    class="row justify-content-center pt-3 pb-3 mb-3"
-    *ngIf="mostrarDetallesComidas"
-  >
-    <div class="col-md-12">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>Comidas</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Series</th>
-                <th>Repeticiones</th>
-                <th>Observaciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let detalleEjercicio of detallesEjercicios">
-                <td>{{ detalleEjercicio.idEjercicio["nombre"] }}</td>
-                <td>{{ detalleEjercicio.series }}</td>
-                <td>{{ detalleEjercicio.repeticiones }}</td>
-                <td>{{ detalleEjercicio.observaciones }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div> -->
 </div>
