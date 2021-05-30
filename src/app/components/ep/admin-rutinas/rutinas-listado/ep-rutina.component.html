@@ -1,7 +1,7 @@
 <app-header-ep></app-header-ep>
 
-<div class="container mt-5 justify-content-center">
-  <div class="row" style="margin: 30px 0">
+<div class="container mt-3 justify-content-center">
+  <div class="row p-3">
     <div class="col">
       <strong><a href="/home-ep">Home</a> > Administrar Rutinas</strong>
     </div>
@@ -32,16 +32,13 @@
                 <!-- <td>{{ rutina.estado }}</td> -->
                 <td style="text-align: right; padding-right: 20px">
                   <a href="/rutina/{{ rutina._id }}"
-                    ><button
-                      class="btn btn-warning btn-sm"
-                      style="margin: 5px;"
-                    >
+                    ><button class="btn btn-warning btn-sm" style="margin: 5px">
                       <i class="material-icons">edit</i>
                     </button></a
                   >
                   <button
                     class="btn btn-danger btn-sm"
-                    style="margin: 5px;"
+                    style="margin: 5px"
                     (click)="deleteRutina(rutina._id)"
                   >
                     <i class="material-icons">delete</i>
