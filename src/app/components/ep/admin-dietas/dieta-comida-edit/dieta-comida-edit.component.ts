@@ -130,7 +130,7 @@ export class DietaComidaEditComponent implements OnInit {
 
     if (
       nuevoDetalleComida.cantidad !== 0 &&
-      nuevoDetalleComida.observaciones !== ''
+      nuevoDetalleComida.cantidad > 0
     ) {
       console.log(nuevoDetalleComida);
 

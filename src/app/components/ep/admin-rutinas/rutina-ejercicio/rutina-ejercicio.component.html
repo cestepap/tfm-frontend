@@ -7,9 +7,7 @@
         <a href="/home-ep">Home</a> >
         <a href="/ep-rutina">Administrar Rutinas</a> >
         <a href="/rutina/{{ rutina._id }}">Vista General</a> >
-        <a href="/rutina-detalle/{{ diaSemanaRutina._id }}"
-          >Vista Detalle</a
-        >
+        <a href="/rutina-detalle/{{ diaSemanaRutina._id }}">Vista Detalle</a>
         > Ejercicio</strong
       >
     </div>
@@ -21,68 +19,56 @@
         <!-- <div style='margin:5px 0'><strong>Detalle:</strong></div> -->
         <mat-card-content>
           <form #detalleEjercicioForm="ngForm">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Ejercicio</th>
-                  <th>Series</th>
-                  <th>Repeticiones</th>
-                  <th>Notas</th>
-                  <th style="text-align: right; padding-right: 20px">
-                    Acciones
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="vertical-align: middle; font-weight: 800">
-                    {{ detalleEjercicio.idEjercicio["nombre"] }}
-                  </td>
+            <div class="row justify-content-center">
+              <div class="col-md-11">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    style="font-weight: 800; color: #666"
+                    name="titulo"
+                    disabled
+                    [(ngModel)]="detalleEjercicio.idEjercicio['nombre']"
+                  />
+                </div>
 
-                  <td style="max-width: 50px">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="series"
-                      placeholder="sdsd"
-                      [(ngModel)]="detalleEjercicio.series"
-                    />
-                  </td>
+                <input
+                  type="number"
+                  class="form-control"
+                  style="text-align: left; font-size: 1.1em"
+                  name="series"
+                  [(ngModel)]="detalleEjercicio.series"
+                />
 
-                  <td style="max-width: 50px">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="repeticiones"
-                      [(ngModel)]="detalleEjercicio.repeticiones"
-                    />
-                  </td>
+                <input
+                  type="number"
+                  class="form-control"
+                  style="text-align: left; font-size: 1.1em"
+                  name="repeticiones"
+                  [(ngModel)]="detalleEjercicio.repeticiones"
+                />
 
-                  <td>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="observaciones"
-                      [(ngModel)]="detalleEjercicio.observaciones"
-                    />
-                  </td>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  style="text-align: left; font-size: 1.1em"
+                  name="observaciones"
+                  rows="2"
+                  [(ngModel)]="detalleEjercicio.observaciones"
+                >
+                </textarea>
+              </div>
 
-                  <td style="text-align: right; padding-right: 20px">
-                    <button
-                      class="btn btn-primary btn-sm"
-                      (click)="editEjercicio(detalleEjercicio)"
-                    >
-                      <i class="material-icons">save</i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <input
-              type="hidden"
-              name="idEjercicio"
-              value="{{ detalleEjercicio.idEjercicio['id'] }}"
-            />
+              <div class="col-md-1">
+                <button
+                  class="btn btn-primary btn-sm"
+                  style="float: right; margin-top: 10px"
+                  (click)="editEjercicio(detalleEjercicio)"
+                >
+                  <i class="material-icons">save</i>
+                </button>
+              </div>
+            </div>
           </form>
 
           <div class="form-group" style="margin: 10px 0">

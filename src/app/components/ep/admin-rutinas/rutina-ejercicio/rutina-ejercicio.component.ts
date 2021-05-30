@@ -55,16 +55,12 @@ export class RutinaEjercicioComponent implements OnInit {
 
   public infoCliente: any = this.storeService.getItem('rutina-infoCliente');
 
-
   ngOnInit(): void {
-    this.ejercicioId = this.route.snapshot.paramMap.get(
-      'ejercicioId'
-    );
+    this.ejercicioId = this.route.snapshot.paramMap.get('ejercicioId');
     this.rutina = this.storeService.getItem('rutina');
     this.diaSemanaRutina = this.storeService.getItem('diaSemanaRutina');
     this.getDetallesEjercicio();
   }
-
 
   getDetallesEjercicio() {
     this.detalleEjercicioService
@@ -74,42 +70,44 @@ export class RutinaEjercicioComponent implements OnInit {
           this.detalleEjercicio = res;
           console.log(this.detalleEjercicio);
           this.storeService.addItem('detalleEjercicio', this.detalleEjercicio);
-          console.log("1");
+          console.log('1');
         },
         (err) => console.log(err)
       );
   }
-  
-  editEjercicio(form: NgForm) {
 
+  editEjercicio(form: NgForm) {
     const updatedEjercicio = {
       _id: form['_id'],
       idDiaSemanaRutina: form['idDiaSemanaRutina'],
-      idEjercicio: form['idEjercicio']._id, 
+      idEjercicio: form['idEjercicio']._id,
       series: form['series'],
       repeticiones: form['repeticiones'],
-      observaciones: form['observaciones']
+      observaciones: form['observaciones'],
+    };
 
-    }
-
-    if ((updatedEjercicio.series !== '') && (updatedEjercicio.repeticiones !== '')) {
+    if (
+      updatedEjercicio.series !== 0 &&
+      updatedEjercicio.series > 0 &&
+      updatedEjercicio.repeticiones !== 0 &&
+      updatedEjercicio.repeticiones > 0
+    ) {
       console.log(updatedEjercicio);
 
-      this.detalleEjercicioService.putDetalleEjercicio(updatedEjercicio).subscribe(
-        (res) => {
-          console.log(res);
-          this.msgForm = 'Actualizado.';
-          this.errorForm = '';
-          // this.getDetallesEjercicio();
-        },
-        (err) => console.log(err)
-      );
+      this.detalleEjercicioService
+        .putDetalleEjercicio(updatedEjercicio)
+        .subscribe(
+          (res) => {
+            console.log(res);
+            this.msgForm = 'Actualizado.';
+            this.errorForm = '';
+            // this.getDetallesEjercicio();
+          },
+          (err) => console.log(err)
+        );
     } else {
       this.errorForm = 'Error en los campos.';
       this.msgForm = '';
     }
-
-
   }
-
 }
