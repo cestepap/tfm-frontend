@@ -16,7 +16,7 @@
 
         <form #nuevoDiario="ngForm" style="padding-top: 20px">
           <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-8">
               <textarea
                 type="text"
                 class="form-control"
@@ -28,7 +28,7 @@
               </textarea>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
               <button
                 class="btn btn-primary btn-sm"
                 (click)="saveNewDiario(nuevoDiario.value)"
@@ -46,7 +46,7 @@
     <mat-card class="example-card mb-3">
       <form #miDiario="ngForm">
         <div class="row justify-content-center" style="align-items: center">
-          <div class="col-9">
+          <div class="col-8">
             <div style="font-size: 1.1em">
               <textarea
                 type="text"
@@ -68,7 +68,7 @@
             </div>
           </div>
 
-          <div class="col-2">
+          <div class="col-3">
             <button
               style="margin-left: 10px"
               class="btn btn-warning btn-sm"
