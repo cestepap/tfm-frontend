@@ -1,8 +1,8 @@
 export class DetalleEjercicio {
     idDiaSemanaRutina: string;
     idEjercicio: string;
-    series: string;
-    repeticiones: string
+    series: number;
+    repeticiones: number;
     observaciones: string;
     createdAt?: string;
     updatedAt?: string;

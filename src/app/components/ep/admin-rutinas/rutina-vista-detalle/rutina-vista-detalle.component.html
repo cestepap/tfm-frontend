@@ -322,14 +322,14 @@
           </div>
         </mat-card>
 
-        <mat-card class="example-card">
+        <mat-card class="example-card" *ngIf="ejercicioIsSelected">
           <div><strong>Nuevo ejercicio</strong></div>
           <div class="row justify-content-center">
             <div
               class="col-12 col-md-7 justify-content-center"
               style="margin-bottom: 20px"
             >
-              <div
+              <!-- <div
                 style="
                   text-align: center;
                   margin: 20px 0;
@@ -340,12 +340,25 @@
                 "
               >
                 {{ nEjercicio }}
-              </div>
+              </div> -->
+
+              <mat-form-field style="width: 100%">
+                <input
+                  matInput
+                  type="text"
+                  class="form-control"
+                  style="color:#666; font-weight: 800; text-align: center;"
+                  name="nombre"
+                  disabled
+                  [(ngModel)]="nEjercicio"
+                />
+              </mat-form-field>
+
 
               <div>
                 <span style="display: inline-block; width: 50%"
                   ><input
-                    type="text"
+                    type="number"
                     class="form-control"
                     name="series"
                     placeholder="Series"
@@ -354,7 +367,7 @@
 
                 <span style="display: inline-block; width: 50%"
                   ><input
-                    type="text"
+                    type="number"
                     class="form-control"
                     name="repeticiones"
                     placeholder="Repeticiones"

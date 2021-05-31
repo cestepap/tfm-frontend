@@ -1,4 +1,4 @@
-<mat-card class="example-card p-3" style='border-radius: 40px;'>
+<mat-card class="example-card p-3" style="border-radius: 40px">
   <mat-card-content>
     <p
       class="pb-3"
@@ -20,18 +20,20 @@
         class="btn btn-secondary btn-sm"
         style="
           display: block;
-          margin: 0px auto;
-          margin-bottom: 10px;
-          margin-top: 10px;
+          margin: 0px auto !important;
+          margin-bottom: 10px !important;
+          margin-top: 10px !important;
           min-width: 100px;
         "
-      >PERFIL</button
-    ></a>
+      >
+        PERFIL
+      </button></a
+    >
 
     <button
       class="btn btn-warning btn-sm"
       (click)="logout()"
-      style="display: block; margin: 0px auto; min-width: 100px"
+      style="display: block; margin: 0px auto !important; min-width: 100px"
     >
       <a class="nav-link" style="color: black; margin: 0; padding: 0" href="/"
         >LOGOUT</a

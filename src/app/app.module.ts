@@ -25,6 +25,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+
 import { MatTableModule } from '@angular/material/table';
 import { HeaderAdminComponent } from './components/headers/header-admin/header-admin.component';
 import { HeaderComponent } from './components/headers/header/header.component';
@@ -108,7 +110,8 @@ import { DietaComidaEditComponent } from './components/ep/admin-dietas/dieta-com
     MatSelectModule,
     MatListModule,
     ChartsModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule
   ],
   providers: [
     CanActivateTokenGuard,

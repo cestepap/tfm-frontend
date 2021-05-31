@@ -24,7 +24,26 @@
           <form #detalleComidaForm="ngForm">
             <div class="row justify-content-center">
               <div class="col-md-11">
-                <div class="form-group">
+
+                <mat-form-field style="width: 100%">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Alimento</mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    class="form-control"
+                    style="font-weight: 800; color: #666"
+                    name="titulo"
+                    disabled
+                    [(ngModel)]="detalleComida.idAlimento['nombre']"
+                  />
+                </mat-form-field>
+
+                <!-- <div class="form-group">
                   <input
                     type="text"
                     class="form-control"
@@ -33,18 +52,53 @@
                     disabled
                     [(ngModel)]="detalleComida.idAlimento['nombre']"
                   />
-                </div>
+                </div> -->
 
-                <input
+                <mat-form-field style="width: 100%">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Cantidad ( gr/ml )</mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    class="form-control"
+                    style="font-weight: 800; color: #666"
+                    name="cantidad"
+                    [(ngModel)]="detalleComida.cantidad"
+                  />
+                </mat-form-field>
+
+                <!-- <input
                   type="number"
                   class="form-control"
                   style="text-align: left; font-size: 1.1em"
                   name="cantidad"
                   [(ngModel)]="detalleComida.cantidad"
-                />
+                /> -->
                 <!-- gr/ml -->
 
-                <textarea
+                <mat-form-field style="width: 100%">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Observaciones</mat-label
+                  >
+                  <textarea
+                    matInput
+                    type="text"
+                    class="form-control"
+                    name="observaciones"
+                    rows='6'
+                    [(ngModel)]="detalleComida.observaciones"
+                  >
+                  </textarea>
+                </mat-form-field>
+
+                <!-- <textarea
                   type="text"
                   class="form-control"
                   style="text-align: left; font-size: 1.1em"
@@ -52,7 +106,7 @@
                   rows="2"
                   [(ngModel)]="detalleComida.observaciones"
                 >
-                </textarea>
+                </textarea> -->
               </div>
 
               <div class="col-md-1">

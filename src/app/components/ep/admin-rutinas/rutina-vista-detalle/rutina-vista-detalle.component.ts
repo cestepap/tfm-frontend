@@ -65,8 +65,8 @@ export class RutinaVistaDetalleComponent implements OnInit {
   public nuevoDetalleEjercicio: DetalleEjercicio = {
     idDiaSemanaRutina: '',
     idEjercicio: '',
-    series: '',
-    repeticiones: '',
+    series: 0,
+    repeticiones: 0,
     observaciones: '',
   };
 
@@ -82,7 +82,9 @@ export class RutinaVistaDetalleComponent implements OnInit {
   msgForm = '';
   errorFormNuevoDetalleEjercicio = '';
   msgFormNuevoDetalleEjercicio = '';
+
   mostrarFormNuevoEjercicio = false;
+  ejercicioIsSelected = false;
 
 
   ngOnInit(): void {
@@ -196,8 +198,10 @@ export class RutinaVistaDetalleComponent implements OnInit {
     console.log(nuevoDetalleEjercicio);
 
     if (
-      nuevoDetalleEjercicio.series !== '' &&
-      nuevoDetalleEjercicio.repeticiones !== '' &&
+      nuevoDetalleEjercicio.series != 0 &&
+      nuevoDetalleEjercicio.series > 0  &&
+      nuevoDetalleEjercicio.repeticiones != 0 &&
+      nuevoDetalleEjercicio.repeticiones > 0  &&
       nuevoDetalleEjercicio.idEjercicio !== ''
     ) {
       console.log(nuevoDetalleEjercicio);
@@ -237,6 +241,9 @@ export class RutinaVistaDetalleComponent implements OnInit {
   }
 
   nombreEjercicio(e) {
+
+    this.ejercicioIsSelected = true;
+
     // this.nEjercicio = e.value;
     console.log(e);
 
@@ -252,9 +259,11 @@ export class RutinaVistaDetalleComponent implements OnInit {
 
   resetFormNuevoEjercicio(){
     this.nEjercicio = "";
-    this.nuevoDetalleEjercicio.series = '';
-    this.nuevoDetalleEjercicio.repeticiones = '';
+    this.nuevoDetalleEjercicio.series = 0;
+    this.nuevoDetalleEjercicio.repeticiones = 0;
     this.nuevoDetalleEjercicio.observaciones = '';
+    this.nFotoEjercicio = 'assets/img/ejercicios/ejercicio-icon.jpg';
+    this.grupoMuscularTitle = 'Todos los ejercicios';
   }
 
 

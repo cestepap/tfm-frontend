@@ -21,7 +21,26 @@
           <form #detalleEjercicioForm="ngForm">
             <div class="row justify-content-center">
               <div class="col-md-11">
-                <div class="form-group">
+
+                <mat-form-field style="width: 100%">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Ejercicio</mat-label
+                  >
+                  <input
+                    matInput
+                    type="text"
+                    class="form-control"
+                    style="font-weight: 800; color: #666"
+                    name="titulo"
+                    disabled
+                    [(ngModel)]="detalleEjercicio.idEjercicio['nombre']"
+                  />
+                </mat-form-field>
+
+                <!-- <div class="form-group">
                   <input
                     type="text"
                     class="form-control"
@@ -30,25 +49,76 @@
                     disabled
                     [(ngModel)]="detalleEjercicio.idEjercicio['nombre']"
                   />
-                </div>
+                </div> -->
 
-                <input
+                <mat-form-field style="width: 100%">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Series</mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    class="form-control"
+                    name="series"
+                    [(ngModel)]="detalleEjercicio.series"
+                  />
+                </mat-form-field>
+
+
+                <!-- <input
                   type="number"
                   class="form-control"
                   style="text-align: left; font-size: 1.1em"
                   name="series"
                   [(ngModel)]="detalleEjercicio.series"
-                />
+                /> -->
 
-                <input
+                <mat-form-field style="width: 100%">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Repeticiones</mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    class="form-control"
+                    name="repeticiones"
+                    [(ngModel)]="detalleEjercicio.repeticiones"
+                  />
+                </mat-form-field>
+
+                <!-- <input
                   type="number"
                   class="form-control"
                   style="text-align: left; font-size: 1.1em"
                   name="repeticiones"
-                  [(ngModel)]="detalleEjercicio.repeticiones"
-                />
+                  [(ngModel)]="detalleEjercicio.repeticiones" -->
+      
 
-                <textarea
+                  <mat-form-field style="width: 100%">
+                    <mat-label
+                      style="
+                        color: black;
+                      "
+                      >Observaciones</mat-label
+                    >
+                    <textarea
+                      matInput
+                      type="text"
+                      class="form-control"
+                      name="observaciones"
+                      rows='6'
+                      [(ngModel)]="detalleEjercicio.observaciones"
+                    >
+                    </textarea>
+                  </mat-form-field>
+
+                <!-- <textarea
                   type="text"
                   class="form-control"
                   style="text-align: left; font-size: 1.1em"
@@ -56,7 +126,7 @@
                   rows="2"
                   [(ngModel)]="detalleEjercicio.observaciones"
                 >
-                </textarea>
+                </textarea> -->
               </div>
 
               <div class="col-md-1">

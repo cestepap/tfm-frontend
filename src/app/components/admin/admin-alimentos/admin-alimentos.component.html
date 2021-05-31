@@ -10,149 +10,201 @@
   <div class="row justify-content-center mb-3">
     <div class="col-md-12">
       <div class="mat-card">
-          <form #alimentosForm="ngForm" (ngSubmit)="addAlimento(alimentosForm)">
-            <div class="row justify-content-center">
-              <div class="col-9 col-md-4">
-                <!-- <div style="padding: 20px 0; font-weight: 800">
+        <form #alimentosForm="ngForm" (ngSubmit)="addAlimento(alimentosForm)">
+          <div class="row justify-content-center">
+            <div class="col-9 col-md-4">
+              <!-- <div style="padding: 20px 0; font-weight: 800">
                   Información del alimento:
                 </div> -->
-                <input
-                  type="hidden"
-                  name="_id"
-                  [(ngModel)]="selectedAlimento._id"
-                />
-
-                <div class="form-group">
+              <input
+                type="hidden"
+                name="_id"
+                [(ngModel)]="selectedAlimento._id"
+              />
+                <mat-form-field style='width: 100%;' >
+                  <mat-label
+                    style="
+                      margin: 0px !important;
+                      padding: 0px !important;
+                      color: black;
+                    "
+                    >Alimento</mat-label
+                  >
                   <input
-                    type="text"
+                    matInput
                     class="form-control"
+                    style="margin: 0px !important; padding: 0px !important"
                     name="nombre"
                     placeholder="Nombre"
                     [(ngModel)]="selectedAlimento.nombre"
                   />
-                </div>
-                <div class="form-group">
+                </mat-form-field>
+
+                <mat-form-field style='width: 100%;' >
+                  <mat-label
+                    style="
+                      margin: 0px !important;
+                      padding: 0px !important;
+                      color: black;
+                    "
+                    >Descripcion</mat-label
+                  >
                   <input
-                    type="text"
+                    matInput
                     class="form-control"
+                    style="margin: 0px !important; padding: 0px !important"
                     name="descripcion"
-                    placeholder="Descripción"
+                    placeholder="Nombre"
                     [(ngModel)]="selectedAlimento.descripcion"
                   />
-                </div>
-
-                <!-- <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="grupoAlimento"
-                    placeholder="Grupo de Alimento"
-                    [(ngModel)]="selectedAlimento.grupoAlimento"
-                  />
-                </div> -->
-
-                <mat-form-field
-                  appearance="fill"
-                  style="display: inline-block; width: 100%"
-                >
-                  <mat-select
-                    [(ngModel)]="selectedAlimento.grupoAlimento"
-                    name="grupoAlimento"
-                  >
-                    <mat-label>Grupo de alimento</mat-label>
-                    <mat-option
-                      *ngFor="let grupoAlimento of gruposAlimento"
-                      [value]="grupoAlimento"
-                    >
-                      {{ grupoAlimento }}
-                    </mat-option>
-                  </mat-select>
                 </mat-form-field>
-              </div>
 
-              <div class="col-3 col-md-2">
-                <div class="form-group">
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="proteinas"
-                    placeholder="Proteinas"
-                    [(ngModel)]="selectedAlimento.proteinas"
-                  /> 
-                </div>
-
-                <div class="form-group">
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="carbohidratos"
-                    placeholder="Carbohidratos"
-                    [(ngModel)]="selectedAlimento.carbohidratos"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="grasas"
-                    placeholder="Grasas"
-                    [(ngModel)]="selectedAlimento.grasas"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <input
-                    type="number"
-                    class="form-control"
-                    name="kcal"
-                    placeholder="kcal"
-                    [(ngModel)]="selectedAlimento.kcal"
-                  />
-                </div>
-
-                <div class="form-group" style="margin: 10px 0">
-                  <p style="color: red">{{ errorForm }}</p>
-                  <p style="color: green">{{ msgForm }}</p>
-                </div>
-              </div>
-
-              <div class="col-8 col-md-4">
-                <div class="form-group">
-                  <!-- <input type="file"
-                         (change)="handleFileInput($event.target.files)"> -->
-
-                  <img
-                    style="
-                      width: 100%;
-                      border: 5px solid #ccc;
-                      margin: 5px 0;
-                      border-radius: 40px;
-                    "
-                    mat-card-image
-                    src="{{ selectedAlimento.imagen }}"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="col-4 col-md-2">
-                <div style="float: right; margin-left:10px;">
-                  <button class="btn btn-primary btn-sm" style="float: right">
-                    <i class="material-icons">save</i>
-                  </button>
-                </div>
-                <div style="float:right; ">
-                  <button
-                    (click)="resetForm()"
-                    class="btn btn-secondary btn-sm"
-                  
+              <mat-form-field
+                appearance="fill"
+                style="display: inline-block; width: 100%"
+              >
+              <mat-label
+              style="
+                margin: 0px !important;
+                padding: 0px !important;
+                color: black;
+              "
+              >Grupo de alimento</mat-label
+            >
+                <mat-select
+                  [(ngModel)]="selectedAlimento.grupoAlimento"
+                  name="grupoAlimento"
+                >
+                  <mat-label>Grupo de alimento</mat-label>
+                  <mat-option
+                    *ngFor="let grupoAlimento of gruposAlimento"
+                    [value]="grupoAlimento"
                   >
-                    <i class="material-icons">delete</i>
-                  </button>
-                </div>
+                    {{ grupoAlimento }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <div class="form-group" style="margin: 10px 0">
+                <p style="color: red">{{ errorForm }}</p>
+                <p style="color: green">{{ msgForm }}</p>
               </div>
             </div>
-          </form>
+
+            <div class="col-3 col-md-2">
+
+              <mat-form-field style='width: 100%;' >
+                <mat-label
+                  style="
+                    margin: 0px !important;
+                    padding: 0px !important;
+                    color: black;
+                  "
+                  >Proteinas</mat-label
+                >
+                <input
+                  matInput
+                  type='number'
+                  class="form-control"
+                  style="margin: 0px !important; padding: 0px !important"
+                  name="proteinas"
+                  [(ngModel)]="selectedAlimento.proteinas"
+                />
+              </mat-form-field>
+
+
+              <mat-form-field style='width: 100%;' >
+                <mat-label
+                  style="
+                    margin: 0px !important;
+                    padding: 0px !important;
+                    color: black;
+                  "
+                  >Carbohidratos</mat-label
+                >
+                <input
+                  matInput
+                  type='number'
+                  class="form-control"
+                  style="margin: 0px !important; padding: 0px !important"
+                  name="carbohidratos"
+                  [(ngModel)]="selectedAlimento.carbohidratos"
+                />
+              </mat-form-field>
+
+              
+              <mat-form-field style='width: 100%;' >
+                <mat-label
+                  style="
+                    margin: 0px !important;
+                    padding: 0px !important;
+                    color: black;
+                  "
+                  >Grasas</mat-label
+                >
+                <input
+                  matInput
+                  type='number'
+                  class="form-control"
+                  style="margin: 0px !important; padding: 0px !important"
+                  name="grasas"
+                  [(ngModel)]="selectedAlimento.grasas"
+                />
+              </mat-form-field>
+
+              <mat-form-field style='width: 100%;' >
+                <mat-label
+                  style="
+                    margin: 0px !important;
+                    padding: 0px !important;
+                    color: black;
+                  "
+                  >Kcalorias</mat-label
+                >
+                <input
+                  matInput
+                  type='number'
+                  class="form-control"
+                  style="margin: 0px !important; padding: 0px !important"
+                  name="kcal"
+                  [(ngModel)]="selectedAlimento.kcal"
+                />
+              </mat-form-field>
+
+            </div>
+
+            <div class="col-8 col-md-4">
+              <div class="form-group">
+                <!-- <input type="file"
+                         (change)="handleFileInput($event.target.files)"> -->
+
+                <img
+                  style="
+                    width: 100%;
+                    border: 5px solid #ccc;
+                    margin: 5px 0;
+                    border-radius: 40px;
+                  "
+                  mat-card-image
+                  src="{{ selectedAlimento.imagen }}"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="col-4 col-md-2">
+              <div style="float: right; margin-left: 10px">
+                <button class="btn btn-primary btn-sm" style="float: right">
+                  <i class="material-icons">save</i>
+                </button>
+              </div>
+              <div style="float: right">
+                <button (click)="resetForm()" class="btn btn-secondary btn-sm">
+                  <i class="material-icons">delete</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -160,66 +212,66 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="mat-card">
-          <div class="table-wrapper">
-            <table class="table table-striped" style="table-layout: fixed">
-              <thead>
-                <tr>
-                  <th>Alimento</th>
-                  <th>Grupo</th>
-                  <th>Descripcion</th>
-                  <th style="max-width: 30px" class="mobile">P</th>
-                  <th style="max-width: 30px" class="mobile">CH</th>
-                  <th style="max-width: 30px" class="mobile">G</th>
-                  <th style="max-width: 30px" class="mobile">Kcal</th>
-                  <th
-                    style="
-                      text-align: right;
-                      padding-right: 20px;
-                      font-size: 1.1em;
-                      min-width: 140px;
-                    "
-                  >
-                    Acciones
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let alimento of alimentos">
-                  <td>{{ alimento.nombre }}</td>
-                  <td>{{ alimento.grupoAlimento }}</td>
-                  <td>{{ alimento.descripcion }}</td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ alimento.proteinas }}
-                  </td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ alimento.carbohidratos }}
-                  </td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ alimento.grasas }}
-                  </td>
-                  <td style="max-width: 30px" class="mobile">
-                    {{ alimento.kcal }}
-                  </td>
+        <div class="table-wrapper">
+          <table class="table table-striped" style="table-layout: fixed">
+            <thead>
+              <tr>
+                <th>Alimento</th>
+                <th>Grupo</th>
+                <th>Descripcion</th>
+                <th style="max-width: 30px" class="mobile">P</th>
+                <th style="max-width: 30px" class="mobile">CH</th>
+                <th style="max-width: 30px" class="mobile">G</th>
+                <th style="max-width: 30px" class="mobile">Kcal</th>
+                <th
+                  style="
+                    text-align: right;
+                    padding-right: 20px;
+                    font-size: 1.1em;
+                    min-width: 140px;
+                  "
+                >
+                  Acciones
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let alimento of alimentos">
+                <td>{{ alimento.nombre }}</td>
+                <td>{{ alimento.grupoAlimento }}</td>
+                <td>{{ alimento.descripcion }}</td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.proteinas }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.carbohidratos }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.grasas }}
+                </td>
+                <td style="max-width: 30px" class="mobile">
+                  {{ alimento.kcal }}
+                </td>
 
-                  <td style="text-align: right; min-width: 140px">
-                    <button
-                      class="btn btn-warning btn-sm"
-                      (click)="editAlimento(alimento)"
-                    >
-                      <i class="material-icons">edit</i>
-                    </button>
-                    <button
-                      class="btn btn-danger btn-sm"
-                      style="margin-left: 10px"
-                      (click)="deleteAlimento(alimento._id)"
-                    >
-                      <i class="material-icons">delete</i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <td style="text-align: right; min-width: 140px">
+                  <button
+                    class="btn btn-warning btn-sm"
+                    (click)="editAlimento(alimento)"
+                  >
+                    <i class="material-icons">edit</i>
+                  </button>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    style="margin-left: 10px"
+                    (click)="deleteAlimento(alimento._id)"
+                  >
+                    <i class="material-icons">delete</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

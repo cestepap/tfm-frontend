@@ -83,6 +83,7 @@ export class AdminEjerciciosComponent implements OnInit {
       this.ejerciciosService.putEjercicio(form.value).subscribe(
         (res) => {
           console.log(res);
+          this.msgForm = 'Actualizado.';
           this.errorForm = '';
           this.getEjercicios();
         },
@@ -91,9 +92,10 @@ export class AdminEjerciciosComponent implements OnInit {
     } else {
       this.ejerciciosService.createEjercicio(form.value).subscribe(
         (res) => {
+          this.msgForm = 'Ejercicio creado correctamente.';
+          this.errorForm = '';
           this.getEjercicios();
           form.reset();
-          this.msgForm = 'Actualizado.';
         },
         (err) => console.log(err)
       );

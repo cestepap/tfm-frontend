@@ -95,6 +95,8 @@ export class AdminAlimentosComponent implements OnInit {
     } else {
       this.alimentoService.createAlimento(form.value).subscribe(
         (res) => {
+          this.msgForm = 'Alimento creado correctamente.';
+          this.errorForm = '';
           this.getAlimentos();
           form.reset();
         },

@@ -11,7 +11,7 @@ body {
 }
 
 a {
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
 .mat-card {
@@ -21,14 +21,14 @@ a {
   border-radius: 20px !important;
 }
 
-input{
-  border-radius: 10px!important;
-  padding-left: 10px!important;
+input {
+  border-radius: 10px !important;
+  padding-left: 10px !important;
 }
 
-textarea{
-  overflow: hidden!important;
-  padding-left: 10px!important;
+textarea {
+  overflow: hidden !important;
+  padding-left: 10px !important;
 }
 
 table {
@@ -46,6 +46,17 @@ table tr:first-child {
 .navbar-brand {
   font-size: 42px !important;
 }
+
+.mat-form-field-underline {
+  display: none !important;
+}
+
+button {
+  /* margin-left: 5px !important;
+  margin-bottom: 5px !important;
+  margin-right: 5px !important; */
+}
+
 @media (max-width: 900px) {
   .datos-cliente-mobile {
     margin-bottom: 20px;
@@ -58,6 +69,6 @@ table tr:first-child {
   }
 
   button {
-    margin-top: 5px!important;
+    margin-top: 5px !important;
   }
 }

@@ -90,6 +90,7 @@ export class DietaComidaDetalleComponent implements OnInit {
   errorFormNuevoDetalleComida = '';
 
   mostrarFormNuevoAlimento = false;
+  alimentoIsSelected = false;
 
   toggle = false;
   grupoAlimentoTitle = 'Todos los alimentos';
@@ -129,6 +130,8 @@ export class DietaComidaDetalleComponent implements OnInit {
   }
 
   nombreAlimento(e) {
+    this.alimentoIsSelected = true;
+
     this.alimentoService.getAlimentoById(e.value).subscribe(
       (res) => {
         this.nAlimento = res['nombre'];
@@ -234,10 +237,9 @@ export class DietaComidaDetalleComponent implements OnInit {
         (this.selectedAlimento.kcal * this.nuevoDetalleComida.cantidad) / 100,
     };
 
-    console.log(nuevoDetalleComida);
-
     if (
-      nuevoDetalleComida.cantidad !== 0 &&
+      nuevoDetalleComida.cantidad != 0 &&
+      nuevoDetalleComida.cantidad > 0 &&
       nuevoDetalleComida.idAlimento !== ''
     ) {
       console.log(nuevoDetalleComida);
@@ -299,6 +301,7 @@ export class DietaComidaDetalleComponent implements OnInit {
     this.nAlimento = '';
     this.nuevoDetalleComida.cantidad = 0;
     this.nuevoDetalleComida.observaciones = '';
+    this.nFotoAlimento = 'assets/img/alimentos/food-icon.png';
+    this.grupoAlimentoTitle = 'Todos los ejercicios';
   }
-
 }
