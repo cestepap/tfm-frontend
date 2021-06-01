@@ -19,7 +19,8 @@ export class UserNotaDiarioNuevaComponent implements OnInit {
     public diarioService: DiarioService,
     public notaDiarioService: NotaDiarioService,
     private storeService: StoreService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private route: Router
   ) {}
 
   public notaDiarioId;
@@ -77,6 +78,7 @@ export class UserNotaDiarioNuevaComponent implements OnInit {
       this.notaDiarioService.createNotaDiario(newNotaDiario).subscribe(
         (res) => {
           console.log(res);
+          this.route.navigate(['user-diario']);
           this.msgFormNotaDiario = 'Nota del diario creada.';
           this.errorFormNotaDiario = '';
         },

@@ -71,7 +71,11 @@ export class DietaNuevaComponent implements OnInit {
       diaSemanaDieta: [],
     };
 
-    if (nuevaDieta.titulo !== '' && nuevaDieta.fechaInicio !== '') {
+    if (
+      nuevaDieta.titulo !== '' &&
+      nuevaDieta.fechaInicio !== '' &&
+      form['idUsuario'] != undefined
+    ) {
       console.log(nuevaDieta);
 
       this.dietaService.createDieta(nuevaDieta).subscribe(
@@ -81,7 +85,6 @@ export class DietaNuevaComponent implements OnInit {
         (err) => console.log(err)
       );
       this.router.navigate(['dietas-listado']);
-
     } else {
       this.errorForm = 'Error en los campos.';
     }

@@ -7,7 +7,6 @@ import { User } from '../../../../models/User';
 import { UserService } from '../../../../services/user.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-rutina-nueva',
   templateUrl: './rutina-nueva.component.html',
@@ -19,7 +18,6 @@ export class RutinaNuevaComponent implements OnInit {
     private rutinaService: RutinaService,
     private userService: UserService,
     private router: Router
-
   ) {}
 
   public titulo: FormControl;
@@ -62,6 +60,8 @@ export class RutinaNuevaComponent implements OnInit {
   saveNuevaRutina(form) {
     console.log(form);
 
+    console.log(form['idUsuario']);
+
     const nuevaRutina: Rutina = {
       idCliente: form['idUsuario'],
       idProfesional: this.idEntrenadorPersonal,
@@ -72,7 +72,11 @@ export class RutinaNuevaComponent implements OnInit {
       diasSemanaRutina: [],
     };
 
-    if (nuevaRutina.titulo !== '' && nuevaRutina.fechaInicio !== '') {
+    if (
+      nuevaRutina.titulo !== '' &&
+      nuevaRutina.fechaInicio !== '' &&
+      form['idUsuario'] != undefined
+    ) {
       console.log(nuevaRutina);
 
       this.rutinaService.createRutina(nuevaRutina).subscribe(
@@ -83,7 +87,6 @@ export class RutinaNuevaComponent implements OnInit {
       );
       this.router.navigate(['rutinas-listado']);
       // this.router.navigate(['`rutina${}`]);
-
     } else {
       this.errorForm = 'Error en los campos.';
     }
