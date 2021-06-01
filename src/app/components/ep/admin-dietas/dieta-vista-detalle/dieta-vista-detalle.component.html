@@ -91,6 +91,12 @@
                 disabled
                 [(ngModel)]="diaSemanaDieta.nombre"
               />
+
+              <div class="form-group" style="margin: 10px 0">
+                <p style="color: red">{{ errorForm }}</p>
+                <p style="color: green">{{ msgForm }}</p>
+              </div>
+              
             </div>
             <div class="col-md-6">
               <input
@@ -101,10 +107,7 @@
                 [(ngModel)]="diaSemanaDieta.descripcion"
               />
 
-              <div class="form-group" style="margin: 10px 0">
-                <p style="color: red">{{ errorForm }}</p>
-                <p style="color: green">{{ msgForm }}</p>
-              </div>
+         
             </div>
 
             <div class="col-md-2">

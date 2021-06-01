@@ -58,6 +58,7 @@ export class DietaVistaGeneralComponent implements OnInit {
   };
 
   public dietaId: string;
+  public diasTotalesDieta: number;
 
   errorForm = '';
   msgForm = '';
@@ -134,10 +135,18 @@ export class DietaVistaGeneralComponent implements OnInit {
         (res) => {
           this.diasSemanaDieta = res;
           console.log(this.diasSemanaDieta);
+
+          this.diasTotalesDieta = Object.keys(this.diasSemanaDieta).length;
+          console.log(this.diasTotalesDieta);
+
           this.storeService.addItem('diaSemanaDieta', this.diasSemanaDieta);
         },
         (err) => console.log(err)
       );
+  }
+
+  calcKcalDietaDia(){
+    return this.dieta.kcalTotalesSemana /this.diasTotalesDieta;
   }
 
   actualizarDieta(form) {

@@ -82,15 +82,39 @@
               [chartType]="pieChartType"
             >
             </canvas>
-            <div
-              style="
-                text-align: center;
-                font-size: 1.5em;
-                padding: 10px;
-                font-weight: 800;
-              "
-            >
-              {{ dieta.kcalTotalesSemana| number : '1.2-2'  }} kcal
+
+            <div>
+              <span
+                style="
+                  display: block;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  padding: 5px;
+                  background: lightsteelblue;
+                  width: 50%;
+                  text-align: center;
+                  margin: 10px auto;
+                "
+                >{{
+                  dieta.kcalTotalesSemana | number: "1.2-2"
+                }}
+                kcal/sem</span
+              >
+              <span
+                style="
+                  display: block;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  padding: 5px;
+                  background: lightsteelblue;
+                  width: 50%;
+                  text-align: center;
+                  margin: 0px auto;
+                  font-weight: 800;
+                "
+              >
+                {{ calcKcalDietaDia() }} kcal/día
+              </span>
             </div>
           </div>
         </mat-card-content>

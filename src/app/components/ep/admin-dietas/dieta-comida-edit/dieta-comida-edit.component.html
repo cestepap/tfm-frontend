@@ -23,15 +23,9 @@
         <mat-card-content>
           <form #detalleComidaForm="ngForm">
             <div class="row justify-content-center">
-              <div class="col-md-11">
-
+              <div class="col-12 col-md-7">
                 <mat-form-field style="width: 100%">
-                  <mat-label
-                    style="
-                      color: black;
-                    "
-                    >Alimento</mat-label
-                  >
+                  <mat-label style="color: black">Alimento</mat-label>
                   <input
                     matInput
                     type="text"
@@ -55,12 +49,7 @@
                 </div> -->
 
                 <mat-form-field style="width: 100%">
-                  <mat-label
-                    style="
-                      color: black;
-                    "
-                    >Cantidad ( gr/ml )</mat-label
-                  >
+                  <mat-label style="color: black">Cantidad ( gr/ml )</mat-label>
                   <input
                     matInput
                     type="number"
@@ -81,18 +70,13 @@
                 <!-- gr/ml -->
 
                 <mat-form-field style="width: 100%">
-                  <mat-label
-                    style="
-                      color: black;
-                    "
-                    >Observaciones</mat-label
-                  >
+                  <mat-label style="color: black">Observaciones</mat-label>
                   <textarea
                     matInput
                     type="text"
                     class="form-control"
                     name="observaciones"
-                    rows='6'
+                    rows="6"
                     [(ngModel)]="detalleComida.observaciones"
                   >
                   </textarea>
@@ -107,6 +91,19 @@
                   [(ngModel)]="detalleComida.observaciones"
                 >
                 </textarea> -->
+              </div>
+
+              <div class="col-8 col-md-4">
+                  <img
+                    style="
+                      width: 100%;
+                      border: 5px solid #ccc;
+                      margin: 5px 0;
+                      border-radius: 40px;
+                    "
+                    src="{{ detalleComida.idAlimento['imagen'] }}"
+                    alt=""
+                  />
               </div>
 
               <div class="col-md-1">

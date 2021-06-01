@@ -22,7 +22,7 @@
               alt=""
               style="width: 60px; text-align: center"
             />
-            <p style='font-size: 0.8em;'>{{ infoCliente.email }}</p>
+            <p style="font-size: 0.8em">{{ infoCliente.email }}</p>
           </div>
         </div>
       </mat-card>
@@ -54,13 +54,13 @@
               <textarea
                 type="text"
                 class="form-control"
-                style="font-weight: 800; text-align: left; font-size: 0.8em; "
+                style="font-weight: 800; text-align: left; font-size: 0.8em"
                 name="descripcion"
                 placeholder="Descripcion"
-                rows='2'
+                rows="2"
                 [(ngModel)]="dieta.descripcion"
               >
-            </textarea>
+              </textarea>
 
               <div class="form-group" style="margin: 10px 0">
                 <p style="color: red">{{ errorForm }}</p>
@@ -93,15 +93,39 @@
               [chartType]="pieChartType"
             >
             </canvas>
-            <div
-              style="
-                text-align: center;
-                font-size: 1.2em;
-                padding: 10px;
-                font-weight: 800;
-              "
-            >
-              {{ dieta.kcalTotalesSemana| number : '1.2-2' }} kcal/semana
+
+            <div>
+              <span
+                style="
+                  display: block;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  padding: 5px;
+                  background: lightsteelblue;
+                  width: 50%;
+                  text-align: center;
+                  margin: 10px auto;
+                "
+                >{{
+                  dieta.kcalTotalesSemana | number: "1.2-2"
+                }}
+                kcal/sem</span
+              >
+              <span
+                style="
+                  display: block;
+                  border: 1px solid #ddd;
+                  border-radius: 5px;
+                  padding: 5px;
+                  background: lightsteelblue;
+                  width: 50%;
+                  text-align: center;
+                  margin: 0px auto;
+                  font-weight: 800;
+                "
+              >
+                {{ calcKcalDietaDia() }} kcal/día
+              </span>
             </div>
           </div>
         </mat-card-content>
@@ -193,7 +217,7 @@
                 </mat-select>
               </mat-form-field>
             </div>
-            <div class="col-md-6" style="margin-top: 40px">
+            <div class="col-md-6 mobile" style="margin-top: 40px">
               <input
                 type="text"
                 class="form-control"
@@ -211,7 +235,7 @@
             <div class="col-md-1">
               <button
                 class="btn btn-primary btn-sm"
-                style='float:right'
+                style="float: right"
                 (click)="saveNuevoDiaSemanaDieta(nuevoDiaSemanaDieta)"
               >
                 <i class="material-icons">save</i>

@@ -72,6 +72,7 @@ export class UserDietaDetalleComponent implements OnInit {
 
   public mostrarDetallesComidas = false;
 
+  public diasTotalesDieta: number;
 
   ngOnInit(): void {
     this.getDieta();
@@ -112,10 +113,18 @@ export class UserDietaDetalleComponent implements OnInit {
         (res) => {
           this.diasSemanaDieta = res;
           console.log(this.diasSemanaDieta);
+
+          this.diasTotalesDieta = Object.keys(this.diasSemanaDieta).length;
+          console.log(this.diasTotalesDieta);
+
           this.storeService.addItem('diaSemanaDieta', this.diasSemanaDieta);
         },
         (err) => console.log(err)
       );
+  }
+
+  calcKcalDietaDia(){
+    return this.dieta.kcalTotalesSemana /this.diasTotalesDieta;
   }
 
   mostrarDetalleComidas(id){
