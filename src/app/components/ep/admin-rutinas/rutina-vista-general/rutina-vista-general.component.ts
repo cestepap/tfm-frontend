@@ -42,7 +42,7 @@ export class RutinaVistaGeneralComponent implements OnInit {
     titulo: '',
     fechaInicio: '',
     estado: '',
-    diasSemanaRutina: []
+    diasSemanaRutina: [],
   };
   public rutinaId: string;
 
@@ -59,7 +59,15 @@ export class RutinaVistaGeneralComponent implements OnInit {
   msgFormDiaSemana = '';
   mostrarFormNuevoDiaSemana = false;
 
-  public diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  public diasSemana = [
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+    'Domingo',
+  ];
 
   public idEntrenadorPersonal: any = this.storeService.getItem(
     'idEntrenadorPersonal'
@@ -87,7 +95,7 @@ export class RutinaVistaGeneralComponent implements OnInit {
     );
   }
 
-  resetNuevoDiaSemana(){
+  resetNuevoDiaSemana() {
     this.msgFormDiaSemana = '';
     this.errorFormDiaSemana = '';
     this.nuevoDiaSemanaRutina = {
@@ -95,7 +103,7 @@ export class RutinaVistaGeneralComponent implements OnInit {
       nombre: '',
       descripcion: '',
       detalleEjercicios: [],
-    }
+    };
   }
 
   getDiasSemanaRutinaByRutinaId() {
@@ -157,7 +165,6 @@ export class RutinaVistaGeneralComponent implements OnInit {
     }
   }
 
-
   newDiaSemanaRutina() {
     // this.nav.navigate(['dieta-dia-nueva']);
     console.log(this.mostrarFormNuevoDiaSemana);
@@ -165,21 +172,26 @@ export class RutinaVistaGeneralComponent implements OnInit {
     this.mostrarFormNuevoDiaSemana = !this.mostrarFormNuevoDiaSemana;
   }
 
-
   saveNuevoDiaSemanaRutina(form) {
     console.log(form);
 
-      const nuevoDiaSemanaRutina: DiaSemanaRutina = {
-        idRutina: this.rutina._id,
-        nombre: form['nombre'],
-        descripcion: form['descripcion'],
-        detalleEjercicios: [],
-      };
+    const nuevoDiaSemanaRutina: DiaSemanaRutina = {
+      idRutina: this.rutina._id,
+      nombre: form['nombre'],
+      descripcion: form['descripcion'],
+      detalleEjercicios: [],
+    };
 
-      if (nuevoDiaSemanaRutina.nombre !== '' && nuevoDiaSemanaRutina.descripcion !== '') {
-        console.log(nuevoDiaSemanaRutina);
+    if (nuevoDiaSemanaRutina.nombre !== '') {
+      console.log('1');
 
-        this.diasSemanaRutinaService.createDiaSemanaRutina(nuevoDiaSemanaRutina).subscribe(
+      // if (form['descripcion'] == undefined)
+      //   nuevoDiaSemanaRutina.descripcion = '';
+      console.log(nuevoDiaSemanaRutina);
+
+      this.diasSemanaRutinaService
+        .createDiaSemanaRutina(nuevoDiaSemanaRutina)
+        .subscribe(
           (res) => {
             console.log(res);
             this.msgFormDiaSemana = 'Dia de la rutina creado.';
@@ -187,16 +199,12 @@ export class RutinaVistaGeneralComponent implements OnInit {
             this.getDiasSemanaRutinaByRutinaId();
             this.resetNuevoDiaSemana();
             this.mostrarFormNuevoDiaSemana = false;
-
           },
           (err) => console.log(err)
         );
-
-      } else {
-        this.errorFormDiaSemana = 'Error en los campos.';
-        this.msgFormDiaSemana = '';
-
-      }
+    } else {
+      this.errorFormDiaSemana = 'Error en los campos.';
+      this.msgFormDiaSemana = '';
+    }
   }
-
 }

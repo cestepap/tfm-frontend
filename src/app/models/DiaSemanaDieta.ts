@@ -1,7 +1,7 @@
 export class DiaSemanaDieta {
     idDieta: string;
     nombre: string;
-    descripcion: string;
+    descripcion?: string;
     proteinasTotalesDia?: number;
     chsTotalesDia?: number;
     grasasTotalesDia?: number;

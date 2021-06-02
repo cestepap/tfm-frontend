@@ -76,7 +76,15 @@ export class DietaVistaGeneralComponent implements OnInit {
     'idEntrenadorPersonal'
   );
 
-  public diasSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  public diasSemana = [
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+    'Domingo',
+  ];
 
   public infoCliente: any = {};
 
@@ -102,7 +110,7 @@ export class DietaVistaGeneralComponent implements OnInit {
         console.log(this.pieChartData);
         if (this.dieta.kcalTotalesSemana > 0) this.pieChartDataNotNull = true;
 
-        console.log(this.pieChartDataNotNull)
+        console.log(this.pieChartDataNotNull);
 
         console.log(this.dieta);
         this.storeService.addItem('dieta', this.dieta);
@@ -117,7 +125,7 @@ export class DietaVistaGeneralComponent implements OnInit {
     );
   }
 
-  resetNuevoDiaSemana(){
+  resetNuevoDiaSemana() {
     this.msgFormDiaSemana = '';
     this.errorFormDiaSemana = '';
     this.nuevoDiaSemanaDieta = {
@@ -125,7 +133,7 @@ export class DietaVistaGeneralComponent implements OnInit {
       nombre: '',
       descripcion: '',
       comida: [],
-    }
+    };
   }
 
   getDiasSemanaDietaByDietaId() {
@@ -145,8 +153,8 @@ export class DietaVistaGeneralComponent implements OnInit {
       );
   }
 
-  calcKcalDietaDia(){
-    return this.dieta.kcalTotalesSemana /this.diasTotalesDieta;
+  calcKcalDietaDia() {
+    return this.dieta.kcalTotalesSemana / this.diasTotalesDieta;
   }
 
   actualizarDieta(form) {
@@ -204,18 +212,18 @@ export class DietaVistaGeneralComponent implements OnInit {
 
   saveNuevoDiaSemanaDieta(form) {
     console.log(form);
+    console.log(this.dietaId);
 
     const nuevoDiaSemanaDieta: DiaSemanaDieta = {
-      idDieta: this.dieta._id,
+      idDieta: this.dietaId,
       nombre: form['nombre'],
       descripcion: form['descripcion'],
       comida: [],
     };
 
-    if (
-      nuevoDiaSemanaDieta.nombre !== '' &&
-      nuevoDiaSemanaDieta.descripcion !== ''
-    ) {
+    console.log(nuevoDiaSemanaDieta);
+
+    if (nuevoDiaSemanaDieta.nombre !== '') {
       console.log(nuevoDiaSemanaDieta);
 
       this.diaSemanaDietaService
@@ -232,6 +240,8 @@ export class DietaVistaGeneralComponent implements OnInit {
           (err) => console.log(err)
         );
     } else {
+      console.log(nuevoDiaSemanaDieta);
+
       this.errorFormDiaSemana = 'Error en los campos.';
       this.msgFormDiaSemana = '';
     }
