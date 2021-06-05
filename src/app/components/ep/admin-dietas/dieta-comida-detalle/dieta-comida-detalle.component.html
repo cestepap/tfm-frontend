@@ -130,7 +130,7 @@
                 <td style="max-width: 30px" class="mobile">
                   {{ detalleComida.kcalDetalleComida }}
                 </td>
-                <td>{{ detalleComida.observaciones }}</td>
+                  {{ detalleComida.observaciones.substring(0, 30) }} ...
 
                 <td style="text-align: right;">
                   <a href="/dieta-comida-edit/{{ detalleComida._id }}">

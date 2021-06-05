@@ -354,8 +354,43 @@
                 />
               </mat-form-field>
 
+              <div style='padding: 0 100px;'>
+                <mat-form-field style="display: inline-block; width: 50%; text-align: center;">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Series</mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    class="form-control"
+                    name="series"
+                    [(ngModel)]="nuevoDetalleEjercicio.series"
+                  />
+                </mat-form-field>
+  
+                <mat-form-field style="display: inline-block; width: 50%; text-align: center;">
+                  <mat-label
+                    style="
+                      color: black;
+                    "
+                    >Repeticiones</mat-label
+                  >
+                  <input
+                    matInput
+                    type="number"
+                    class="form-control"
+                    name="repeticiones"
+                    [(ngModel)]="nuevoDetalleEjercicio.repeticiones"
+                  />
+                </mat-form-field>
+              </div>
+              
 
-              <div>
+
+              <!-- <div>
                 <span style="display: inline-block; width: 50%"
                   ><input
                     type="number"
@@ -373,7 +408,7 @@
                     placeholder="Repeticiones"
                     [(ngModel)]="nuevoDetalleEjercicio.repeticiones"
                 /></span>
-              </div>
+              </div> -->
               <textarea
                 type="text"
                 class="form-control"
