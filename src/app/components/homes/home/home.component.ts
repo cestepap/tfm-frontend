@@ -160,13 +160,7 @@ export class HomeComponent implements OnInit {
             this.router.navigate(['/']);
         }
 
-        // this.storeService.setLoggedStatus(true);
 
-        // this.storeService.setToken(res.token);
-        // this.storeService.setUser(res.userFound);
-
-
-        // this.router.navigate(['home-admin']);
       },
       (err) => {
         this.message = err.error.message;
@@ -210,13 +204,6 @@ export class HomeComponent implements OnInit {
             this.router.navigate(['/']);
         }
 
-        // this.storeService.setLoggedStatus(true);
-
-        // this.storeService.setToken(res.token);
-        // this.storeService.setUser(res.savedUser);
-
-
-        // this.router.navigate(['home-admin']);
       },
       (err) => {
         this.message2 = err.error.message;
