@@ -8,9 +8,9 @@ import { StoreService } from '../services/store.service';
   providedIn: 'root',
 })
 export class UserService {
-  // URL_API = 'http://localhost:4000/api/users';
+  URL_API = 'http://localhost:4000/api/users';
 
-  URL_API = 'http://161.22.43.33:4000/api/users';
+  // URL_API = 'http://161.22.43.33:4000/api/users';
 
 
   public token: any = this.storeService.getItem('token');  

@@ -8,9 +8,9 @@ import { StoreService } from '../services/store.service';
   providedIn: 'root',
 })
 export class RutinaService {
-  // URL_API = 'http://localhost:4000/api/rutinas';
+  URL_API = 'http://localhost:4000/api/rutinas';
 
-  URL_API = 'http://161.22.43.33:4000/api/rutinas';
+  // URL_API = 'http://161.22.43.33:4000/api/rutinas';
 
 
   public token: any = this.storeService.getItem('token');  
